@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:jaxws="http://cxf.apache.org/jaxws"
+        xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+        xsi:schemaLocation="
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+         http://cxf.apache.org/jaxws
+         http://cxf.apache.org/schemas/jaxws.xsd
+         http://cxf.apache.org/jaxrs
+         http://cxf.apache.org/schemas/jaxrs.xsd">
+
+    <!--<import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-jaxrs-binding.xml"/>-->
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+
+    <!-- JAX-RS -->
+    <!--<jaxrs:server id="helloService" address="/rest">
+        <jaxrs:serviceBeans>
+            <ref bean="helloBean" />
+        </jaxrs:serviceBeans>
+    </jaxrs:server>-->
+
+    <!-- JAX-WS -->
+    <jaxws:endpoint
+            id="ahelloBean"
+            implementor="ua.nure.itech.jaxws.service.HelloAnnotated"
+            address="/ahello"/>
+
+    <jaxws:endpoint
+            id="helloBean"
+            implementor="ua.nure.itech.jaxws.service.Hello"
+            address="/hello"/>
+</beans>

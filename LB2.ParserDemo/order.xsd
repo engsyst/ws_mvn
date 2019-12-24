@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://order.nure.ua/entity/order/" 
+  	xmlns:tns="http://order.nure.ua/entity/order/"
+  	xmlns:bk="http://order.nure.ua/entity/book/"
+  	xmlns:ent="http://order.nure.ua/entity/"
+	elementFormDefault="qualified">
+	
+	<xsd:import namespace="http://order.nure.ua/entity/" schemaLocation="entity.xsd"/>
+	<xsd:import namespace="http://order.nure.ua/entity/book/" schemaLocation="book.xsd"/>
+	<xsd:complexType name="OrderItem">
+		<xsd:complexContent>
+			<xsd:extension base="ent:Entity">
+				<xsd:sequence>
+					<xsd:element name="count" minOccurs="1" maxOccurs="1">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="book" type="bk:Book" minOccurs="1"
+						maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="Order">
+		<xsd:complexContent>
+			<xsd:extension base="ent:Entity">
+				<xsd:sequence>
+					<xsd:element name="orderItem" type="tns:OrderItem"
+						minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+ </xsd:schema>

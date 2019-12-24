@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://order.nure.ua/entity/order/" 
+  	xmlns:tns="http://order.nure.ua/entity/order/"
+	elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="order.xsd"/>
+	<xsd:element name="orders">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="order" type="tns:Order"
+						minOccurs="0" maxOccurs="unbounded" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+ </xsd:schema>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). 
+	RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. -->
+<xs:schema xmlns:tns="http://order.nure.ua/server/service"
+	xmlns:ns1="http://order.nure.ua/entity" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	version="1.0" targetNamespace="http://order.nure.ua/server/service">
+
+	<xs:import namespace="http://order.nure.ua/entity"
+		schemaLocation="books2.xsd"></xs:import>
+
+	<xs:element name="DAOException" type="tns:DAOException"></xs:element>
+
+	<xs:element name="addBook" type="tns:addBook"></xs:element>
+
+	<xs:element name="addBookResponse" type="tns:addBookResponse"></xs:element>
+
+	<xs:element name="deleteBook" type="tns:deleteBook"></xs:element>
+
+	<xs:element name="deleteBookResponse" type="tns:deleteBookResponse"></xs:element>
+
+	<xs:element name="findByAuthor" type="tns:findByAuthor"></xs:element>
+
+	<xs:element name="findByAuthorResponse" type="tns:findByAuthorResponse"></xs:element>
+
+	<xs:element name="findByTitle" type="tns:findByTitle"></xs:element>
+
+	<xs:element name="findByTitleResponse" type="tns:findByTitleResponse"></xs:element>
+
+	<xs:element name="getBook" type="tns:getBook"></xs:element>
+
+	<xs:element name="getBookResponse" type="tns:getBookResponse"></xs:element>
+
+	<xs:element name="listBooks" type="tns:listBooks"></xs:element>
+
+	<xs:element name="listBooksResponse" type="tns:listBooksResponse"></xs:element>
+
+	<xs:complexType name="findByAuthor">
+		<xs:sequence>
+			<xs:element name="pattern" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="findByAuthorResponse">
+		<xs:sequence>
+			<xs:element ref="ns1:return" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="addBook">
+		<xs:sequence>
+			<xs:element ref="ns1:book" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="addBookResponse">
+		<xs:sequence>
+			<xs:element name="return" type="xs:int"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DAOException">
+		<xs:sequence>
+			<xs:element name="message" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="findByTitle">
+		<xs:sequence>
+			<xs:element name="pattern" type="xs:string" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="findByTitleResponse">
+		<xs:sequence>
+			<xs:element ref="ns1:return" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="deleteBook">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="deleteBookResponse">
+		<xs:sequence>
+			<xs:element ref="ns1:return" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="listBooks">
+		<xs:sequence></xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="listBooksResponse">
+		<xs:sequence>
+			<xs:element ref="ns1:return" minOccurs="0" maxOccurs="unbounded"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getBook">
+		<xs:sequence>
+			<xs:element name="id" type="xs:int"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="getBookResponse">
+		<xs:sequence>
+			<xs:element ref="ns1:return" minOccurs="0"></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

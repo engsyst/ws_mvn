@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xml" href="listOrder.xsl"?>
+<tns:orders xmlns:tns="http://order.nure.ua/entity/order/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://order.nure.ua/entity/order/ orders.xsd ">
+<!-- 	<tns:orderItem id="3">
+		<tns:count>20</tns:count>
+		<tns:book id="0">
+			<tns:title>tns:title</tns:title>
+			<tns:author>tns:author</tns:author>
+			<tns:price>0.0</tns:price>
+			<tns:category>none</tns:category>
+			<tns:count>3</tns:count>
+		</tns:book>
+	</tns:orderItem>
+	<tns:orderItem id="2">
+		<tns:count>10</tns:count>
+		<tns:book id="1">
+			<tns:title>tns:title1</tns:title>
+			<tns:author>tns:author1</tns:author>
+			<tns:author>tns:author2</tns:author>
+			<tns:price>1.0</tns:price>
+			<tns:category>none</tns:category>
+			<tns:count>2</tns:count>
+		</tns:book>
+	</tns:orderItem>
+ -->
+ </tns:orders>

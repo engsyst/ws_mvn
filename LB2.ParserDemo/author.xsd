@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://order.nure.ua/entity/book/" 
+  	xmlns:tns="http://order.nure.ua/entity/book/" 
+  	xmlns:ent="http://order.nure.ua/entity/" 
+	elementFormDefault="qualified">
+	
+	<xsd:import namespace="http://order.nure.ua/entity/" schemaLocation="entity.xsd" />
+	<xsd:complexType name="Author">
+		<xsd:complexContent>
+			<xsd:extension base="ent:Entity">
+				<xsd:sequence>
+					<xsd:element name="title" type="xsd:string" minOccurs="1" maxOccurs="1" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+ </xsd:schema>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders xmlns="http://order.nure.ua/entity/order/" 
+	xmlns:bk="http://order.nure.ua/entity/book/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://order.nure.ua/entity/order/ orders.xsd ">
+	<order>
+		<orderItem id="0">
+			<count>1</count>
+			<book id="1">
+				<bk:title>title</bk:title>
+				<bk:author id="1">
+					<bk:title>author 1</bk:title>
+				</bk:author>
+				<bk:author id="2">
+					<bk:title>author 2</bk:title>
+				</bk:author>
+				<bk:price>10.0</bk:price>
+				<!-- <bk:price>10.0</bk:price> -->
+				<bk:category>Fantasy</bk:category>
+				<bk:count>0</bk:count>
+			</book>
+		</orderItem>
+		<orderItem id="0">
+			<count>3</count>
+			<book id="0">
+				<bk:title>title 1</bk:title>
+				<bk:author>
+					<bk:title>author</bk:title>
+				</bk:author>
+				<bk:price>0.50</bk:price>
+				<bk:category>Action</bk:category>
+				<bk:count>0</bk:count>
+			</book>
+		</orderItem>
+	</order>
+	<order>
+		<orderItem id="0">
+			<count>1</count>
+			<book id="1">
+				<bk:title>title 2</bk:title>
+				<bk:author id="3">
+					<bk:title>author 3</bk:title>
+				</bk:author>
+				<bk:price>7.0</bk:price>
+				<bk:category>Love novel</bk:category>
+				<bk:count>0</bk:count>
+			</book>
+		</orderItem>
+		<orderItem id="0">
+			<count>2</count>
+			<book id="0">
+				<bk:title>title 3</bk:title>
+				<bk:author  id="2">
+					<bk:title>author 2</bk:title>
+				</bk:author>
+				<bk:price>3.50</bk:price>
+				<bk:category>Love novel</bk:category>
+				<bk:count>0</bk:count>
+			</book>
+		</orderItem>
+	</order>
+</orders>

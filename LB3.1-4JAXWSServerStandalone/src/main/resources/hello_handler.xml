@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<javaee:handler-chains
+	xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/javaee_web_services_metadata_handler_2_0.xsd">
+	<javaee:handler-chain>
+		<javaee:handler>
+			<javaee:handler-name>HelloHandler</javaee:handler-name>
+			<javaee:handler-class>ua.nure.itech.jaxws.handler.HelloHandler</javaee:handler-class>
+		</javaee:handler>
+	</javaee:handler-chain>
+	<javaee:handler-chain>
+		<javaee:handler>
+			<javaee:handler-name>SecurityHandler</javaee:handler-name>
+			<javaee:handler-class>ua.nure.itech.jaxws.handler.SecurityHandler</javaee:handler-class>
+		</javaee:handler>
+	</javaee:handler-chain>
+</javaee:handler-chains>
