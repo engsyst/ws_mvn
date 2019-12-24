@@ -1,4 +1,7 @@
 /bin/
+/target/
 /out/
 /.idea/
-/LB3WSServerJAXWSExample.iml
+*.iml
+*.class
+

@@ -1,5 +1,6 @@
-/build/
-/WebContent/WEB-INF/classes/
-/WebContent/WEB-INF/lib/
-*.jar
+/bin/
+/target/
+/out/
+/.idea/
+*.iml
 *.class

@@ -1,4 +1,7 @@
-/build/
+/bin/
 /target/
+/out/
+/.idea/
+*.iml
+*.class
 *.log
-/*/.idea/
