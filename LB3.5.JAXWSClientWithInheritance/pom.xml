@@ -13,7 +13,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <artifactId>LB3mvnWSClientJAXWSExampleWithInheritance</artifactId>
+    <artifactId>LB3.5.JAXWSClientWithInheritance</artifactId>
     <name>JaxWS Client Demo</name>
     <description>
         How to use type inheritance in Web-service implementation classes.

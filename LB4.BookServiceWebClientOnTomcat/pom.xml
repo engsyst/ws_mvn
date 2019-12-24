@@ -11,7 +11,7 @@
          <version>1.0-SNAPSHOT</version>
          <relativePath>../pom.xml</relativePath>
      </parent>
-    <artifactId>LB4mvnjaxwsBookServiceWebClient</artifactId>
+    <artifactId>LB4.BookServiceWebClientOnTomcat</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 

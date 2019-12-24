@@ -12,7 +12,7 @@
          <relativePath>../pom.xml</relativePath>
      </parent>
     <!--<groupId>ua.nure</groupId>-->
-    <artifactId>LB3mvnWSServerJAXWSExampleAXIS2OnTomcat</artifactId>
+    <artifactId>LB3.1.JAXWSServerAXIS2OnTomcat</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 

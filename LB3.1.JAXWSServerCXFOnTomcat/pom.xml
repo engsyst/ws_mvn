@@ -11,8 +11,7 @@
          <version>1.0-SNAPSHOT</version>
          <relativePath>../pom.xml</relativePath>
      </parent>
-    <!--<groupId>ua.nure</groupId>-->
-    <artifactId>LB3mvnWSServerJAXWSExampleCXFOnTomcat</artifactId>
+    <artifactId>LB3.1.JAXWSServerCXFOnTomcat</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
