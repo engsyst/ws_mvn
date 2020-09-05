@@ -5,3 +5,5 @@
 *.iml
 *.class
 /.settings/
+/.classpath
+/.project
