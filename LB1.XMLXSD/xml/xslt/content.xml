@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="content.xsl" type="text/xsl"?>
+<content title="Оглавление">
+	<chapter id="1">
+		<title>Принципы работы в Интернет. Изучение возможностей и интерфейса обозревателя</title>
+		<chapter id="1.1">
+			<title>Цель работи</title>
+		</chapter>
+		<chapter id="1.2">
+			<title>Указания к выполнению работы</title>
+			<chapter id="1.2.1">
+				<title>Параметры безопасности и конфиденциальности</title>
+			</chapter>
+		</chapter>
+		<chapter id="1.3">
+			<title>Порядок выполнения работы</title>
+		</chapter>
+		<chapter id="1.4">
+			<title>Содержание отчета</title>
+		</chapter>
+		<chapter id="1.5">
+			<title>Контрольные вопросы</title>
+		</chapter>
+	</chapter>
+	<chapter id="2">
+		<title>Изучение возможностей поисковых систем.</title>
+		<chapter id="2.1">
+			<title>Цель работи</title>
+		</chapter>
+		<chapter id="2.2">
+			<title>Указания к выполнению работы</title>
+			<chapter id="2.2.1">
+				<title>Синтаксис языка запросов (строгий поиск)</title>
+			</chapter>
+			<chapter id="2.2.2">
+				<title>Поиск в элементах</title>
+			</chapter>
+			<chapter id="2.2.3">
+				<title>Расширенный поиск</title>
+			</chapter>
+		</chapter>
+		<chapter id="2.3">
+			<title>Порядок выполнения работы</title>
+		</chapter>
+		<chapter id="2.4">
+			<title>Содержание отчета</title>
+		</chapter>
+		<chapter id="2.5">
+			<title>Контрольные вопросы</title>
+		</chapter>
+	</chapter>
+	<chapter id="3">
+		<title>Принципы приема данных от браузера и построение форм данных</title>
+		<chapter id="3.1">
+			<title>Цель работи</title>
+		</chapter>
+		<chapter id="3.2">
+			<title>Указания к выполнению работы</title>
+		</chapter>
+		<chapter id="3.3">
+			<title>Порядок выполнения работы</title>
+		</chapter>
+		<chapter id="3.4">
+			<title>Содержание отчета</title>
+		</chapter>
+		<chapter id="3.5">
+			<title>Контрольные вопросы</title>
+		</chapter>
+	</chapter>
+	<chapter id="4">
+		<title>Изучение возможностей PHP для работы с файлами на веб-сервере</title>
+		<chapter id="4.1">
+			<title>Цель работи</title>
+		</chapter>
+		<chapter id="4.2">
+			<title>Указания к выполнению работы</title>
+		</chapter>
+		<chapter id="4.3">
+			<title>Порядок выполнения работы</title>
+		</chapter>
+		<chapter id="4.4">
+			<title>Содержание отчета</title>
+		</chapter>
+		<chapter id="4.5">
+			<title>Контрольные вопросы</title>
+		</chapter>
+	</chapter>
+	<chapter id="5">
+		<title>Изучение возможностей PHP для работы с базами данных</title>
+		<chapter id="5.1">
+			<title>Цель работи</title>
+		</chapter>
+		<chapter id="5.2">
+			<title>Указания к выполнению работы</title>
+		</chapter>
+		<chapter id="5.3">
+			<title>Порядок выполнения работы</title>
+		</chapter>
+		<chapter id="5.4">
+			<title>Содержание отчета</title>
+		</chapter>
+		<chapter id="5.5">
+			<title>Контрольные вопросы</title>
+		</chapter>
+	</chapter>
+</content>

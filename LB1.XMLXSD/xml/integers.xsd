@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://training.epam.com/xmldemo"
+	xmlns:tns="http://training.epam.com/xmldemo" 
+	elementFormDefault="qualified">
+	<complexType name="IntType">
+		<!-- XML Schema types to Java types mapping example.
+			Generate jaxb classes to see how.
+			# xjc -d src\main\java xml\integers.xsd
+		-->
+		<all>
+			<element name="tInteger" type="integer"/>
+			<element name="tLong" type="long"/>
+			<element name="tInt" type="int"/>
+			<element name="tShort" type="short"/>
+			<element name="tByte" type="byte"/>
+			<element name="tPositiveInteger" type="positiveInteger"/>
+			<element name="tNonPositiveInteger" type="nonPositiveInteger"/>
+			<element name="tNegativeInteger" type="negativeInteger"/>
+			<element name="tNonNegativeInteger" type="nonNegativeInteger"/>
+			<element name="uLong" type="unsignedLong"/>
+			<element name="uInt" type="unsignedInt"/>
+			<element name="uShort" type="unsignedShort"/>
+			<element name="uByte" type="unsignedByte"/>
+		</all>
+	</complexType>
+	
+</schema>

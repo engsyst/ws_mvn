@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo"
+	xmlns:tns="http://training.epam.com/xmldemo" elementFormDefault="qualified">
+
+	<complexType name="DateTime">
+		<all>
+			<element name="Duration" type="duration" />
+			<element name="DateTime" type="dateTime" />
+			<element name="Time" type="time" />
+			<element name="YearMonth" type="gYearMonth" />
+			<element name="MonthDay" type="gMonthDay" />
+			<element name="Year" type="gYear" />
+			<element name="Month" type="gMonth" />
+			<element name="Day" type="gDay" />
+		</all>
+	</complexType>
+	<element name="datetime" type="tns:DateTime"></element>
+</schema>

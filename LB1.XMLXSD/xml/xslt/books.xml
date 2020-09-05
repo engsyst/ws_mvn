@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books xmlns="http://demo.shop/entity"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://demo.shop/entity books.xsd "
+	>
+	<book id="1">
+		<title>Буратино</title>
+		<author>Он же</author>
+		<price>0.0</price>
+		<category>none</category>
+		<count>0</count>
+	</book>
+	<book id="2">
+		<title>Мальвина</title>
+		<author>Она же</author>
+		<author>Другие</author>
+		<price>1.0</price>
+		<category>none</category>
+		<count>0</count>
+	</book>
+</books>

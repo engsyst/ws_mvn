@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/choce"
+	xmlns:tns="http://training.epam.com/xmldemo/choce" elementFormDefault="qualified">
+
+	<complexType name="choice">
+		<choice>
+			<element name="from" type="string" />
+			<element name="to" type="string" />
+			<element name="copy" type="string" />
+		</choice>
+	</complexType>
+
+	<element name="msg" >
+		<complexType>
+			<sequence>
+				<element name="addr" type="tns:choice" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

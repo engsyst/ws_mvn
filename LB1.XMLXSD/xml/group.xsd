@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/group"
+	xmlns:tns="http://training.epam.com/xmldemo/group" elementFormDefault="qualified">
+
+	<group name="contact">
+		<sequence>
+			<element name="email" type="string" />
+			<element name="skype" type="string" minOccurs="0"/>
+		</sequence>
+	</group>
+	
+	<element name="message">
+		<complexType>
+			<sequence>
+				<group ref="tns:contact" maxOccurs="3"/>
+				<element name="body" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+
+</schema>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:msg xmlns:tns="http://training.epam.com/xmldemo/choce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://training.epam.com/xmldemo/choce choice.xsd ">
+	<tns:addr>
+		<tns:from>from</tns:from>
+	</tns:addr>
+	<tns:addr>
+		<tns:to>to</tns:to>
+	</tns:addr>
+	<tns:addr>
+		<tns:copy>copy</tns:copy>
+	</tns:addr>
+	<tns:addr>
+		<tns:to>hidden copy</tns:to>
+	</tns:addr>
+</tns:msg>

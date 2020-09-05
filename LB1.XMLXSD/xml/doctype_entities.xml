@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books [
+<!ENTITY copyright "<copyright>&#169; All rights reserved</copyright>" >
+]>
+<books xmlns:tns="http://training.epam.com/xmldemo">
+	&copyright;
+	<tns:title>XML</tns:title>
+</books>

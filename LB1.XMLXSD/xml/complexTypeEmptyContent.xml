@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:prices
+	xmlns:tns="http://training.epam.com/xmldemo/simpleContent"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://training.epam.com/xmldemo/simpleContent complexTypeEmptyContent.xsd ">
+
+	<tns:uprice currency="USD" value="10"/>
+</tns:prices>

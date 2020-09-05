@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://demo.shop/entity" 
+  	xmlns:tns="http://demo.shop/entity"
+	elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="book.xsd" />
+	<xsd:element name="books">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="book" type="tns:Book" minOccurs="0" maxOccurs="unbounded"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+		<xsd:unique name="BookId">
+			<xsd:selector xpath="book"></xsd:selector>
+			<xsd:field xpath="@id"></xsd:field>
+		</xsd:unique>
+	</xsd:element>
+	
+	<xsd:element name="book" type="tns:Book"/>
+	
+ </xsd:schema>

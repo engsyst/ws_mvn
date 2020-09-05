@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:sizes
+	xmlns:tns="http://training.epam.com/xmldemo/union"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://training.epam.com/xmldemo/union union.xsd ">
+	<tns:jeans_size>small</tns:jeans_size>
+	<tns:jeans_size>medium</tns:jeans_size>
+	<tns:jeans_size>large</tns:jeans_size>
+	<tns:jeans_size>42</tns:jeans_size>
+	<tns:jeans_size>30</tns:jeans_size>
+</tns:sizes>

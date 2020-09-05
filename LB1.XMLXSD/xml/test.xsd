@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/test" targetNamespace="http://www.example.org/test"
+	elementFormDefault="qualified">
+
+	<xs:element name="jeans">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="size">
+					<xs:simpleType>
+						<!-- list of tns:JeansSizes values separated by space character -->
+						<xs:list itemType="tns:JeansSizes"/>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:simpleType name="JeansSizes">
+		<!-- one of declared types are allowed -->
+		<xs:union memberTypes="tns:SizeInt tns:SizeChar"/>
+	</xs:simpleType>
+	<xs:simpleType name="SizeInt">
+		<xs:restriction base="xs:int">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="SizeChar">
+		<xs:restriction base="xs:NCName">
+			<xs:enumeration value="XS"/>
+			<xs:enumeration value="S"/>
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="L"/>
+			<xs:enumeration value="XL"/>
+			<xs:enumeration value="XXL"/>
+			<xs:enumeration value="XXXL"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="price">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="tns:UnsignedDouble">
+					<xs:attribute name="currency" type="xs:token" default="UAH"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="UnsignedDouble">
+		<xs:restriction base="xs:double">
+			<xs:minInclusive value="0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="color" type="tns:Color" />
+
+	<xs:group name="Sale">
+		<xs:choice>
+			<xs:element name="discount" type="xs:token" />
+			<xs:element name="present" type="xs:token" />
+		</xs:choice>
+	</xs:group>
+
+	<xs:complexType name="Car">
+		<xs:sequence>
+			<xs:element ref="tns:price"/>
+			<xs:element name="color" type="tns:Color" />
+			<xs:element name="name" type="xs:token" />
+			<xs:element name="country" type="xs:token" minOccurs="0"
+				maxOccurs="unbounded" />
+			<xs:group ref="tns:Sale" minOccurs="0"></xs:group>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="car" type="tns:Car"/>
+	
+	<xs:element name="cars">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="car" type="tns:Car" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:simpleType name="Color">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="red"></xs:enumeration>
+			<xs:enumeration value="green"></xs:enumeration>
+			<xs:enumeration value="blue"></xs:enumeration>
+			<xs:enumeration value="black"></xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

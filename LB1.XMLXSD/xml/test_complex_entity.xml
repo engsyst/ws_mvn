@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books
+	xmlns="http://training.epam.com/xmldemo"
+	key="value">
+	<!-- books в пространстве имен http://training.epam.com/xmldemo -->
+	<book
+		xmlns:a="Namespace A"
+		xmlns:b="Namespace B">
+		<title>XML</title>
+	</book>
+	<letterBody>
+		<salutation>
+			Dear Mr.
+			<name>Robert Smith</name>
+			.
+		</salutation>
+		Your order of
+		<quantity>1</quantity>
+		<productName>Baby
+			Monitor</productName>
+		shipped from our warehouse on
+		<shipDate>1999-05-21</shipDate>
+		. ....
+	</letterBody>
+</books>

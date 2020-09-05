@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/union"
+	xmlns:tns="http://training.epam.com/xmldemo/union" elementFormDefault="qualified">
+
+	<element name="sizes">
+		<complexType>
+			<sequence>
+				<element ref="tns:jeans_size" maxOccurs="unbounded"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="jeans_size">
+		<simpleType>
+			<union memberTypes="tns:sizebyno tns:sizebystring" />
+		</simpleType>
+	</element>
+
+	<simpleType name="sizebyno">
+		<restriction base="positiveInteger">
+			<maxInclusive value="42" />
+		</restriction>
+	</simpleType>
+
+	<simpleType name="sizebystring">
+		<restriction base="string">
+			<enumeration value="small" />
+			<enumeration value="medium" />
+			<enumeration value="large" />
+		</restriction>
+	</simpleType>
+</schema>

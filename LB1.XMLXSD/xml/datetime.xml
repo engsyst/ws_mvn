@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datetime xmlns="http://training.epam.com/xmldemo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://training.epam.com/xmldemo datetime.xsd ">
+	<Duration>P1D</Duration>
+	<DateTime>2001-12-31T12:00:00</DateTime>
+	<Time>12:00:00</Time>
+	<YearMonth>2001-01</YearMonth>
+	<MonthDay>--01-01</MonthDay>
+	<Year>2001</Year>
+	<Month>--01</Month>
+	<Day>---01</Day>
+</datetime>

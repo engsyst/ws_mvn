@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://training.epam.com/xmldemo/entity/order"
+	xmlns:tns="http://training.epam.com/xmldemo/entity/order" 
+	xmlns:ent="http://training.epam.com/xmldemo/entity" 
+	elementFormDefault="qualified">
+	
+	<annotation>
+		<documentation>
+			Example for a different schema types.
+			Include match more useful components and their attributes
+			Schema instance (xml document) must have one of order or orders element
+		</documentation>
+	</annotation>
+	
+	<!-- import: Adds multiple schemas with different target namespace to a document -->
+	<import namespace="http://training.epam.com/xmldemo/entity" schemaLocation="entity.xsd" />
+	
+	<!-- include: Adds multiple schemas with the same target namespace to a document -->
+	<include schemaLocation="delivery.xsd"></include>
+
+	<element name="orders">
+		<!-- array or list -->
+		<!-- anonymous type -->
+		<complexType>
+			<sequence>
+				<element ref="tns:order" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="order">
+		<!-- anonymous type 
+			if you wish reference to this type you must use ref attribute in another element
+			see: <orders> element definition
+		-->
+		<complexType>
+			<sequence>
+				<element name="no" type="positiveInteger" />
+				<!-- Product type defined below in this document
+					For a reference on this type need use link at targetNamespace
+				 -->
+				<element name="product" type="tns:Product" minOccurs="0" maxOccurs="unbounded" />
+				<element name="totalPrice">
+					<complexType>
+						<simpleContent>
+							<extension base="tns:PriceValue">
+								<attribute name="currency" type="tns:Currency" />
+							</extension>
+						</simpleContent>
+					</complexType>
+				</element>
+				<element name="delivery" type="tns:Delivery" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<!-- Example of schema inheritance with different namespace -->
+	<complexType name="Product">
+		<complexContent>
+			<extension base="ent:Entity">
+				<!-- All elements in any order -->
+				<!-- Can't have array -->
+				<all>
+					<element name="name" type="token" />
+					<!-- optional element -->
+					<element name="description" type="string" minOccurs="0"/>
+					<element name="price" type="tns:Price" />
+					<element name="quantity" type="unsignedShort" />
+				</all>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<simpleType name="PriceValue">
+		<restriction base="decimal">
+			<minInclusive value="0.00" />
+			<fractionDigits value="2" />
+		</restriction>
+	</simpleType>
+
+	<!-- An empty element with two attributes -->
+	<complexType name="Price">
+		<complexContent>
+			<restriction base="anyType">
+				<attribute name="currency" type="tns:Currency" default="UAH"/>
+				<attribute name="value" type="tns:PriceValue" use="required" />
+			</restriction>
+		</complexContent>
+	</complexType>
+
+	<!-- Enumeration -->
+	<simpleType name="Currency">
+		<restriction base="string">
+			<enumeration value="UAH" />
+			<enumeration value="USD" />
+			<enumeration value="EUR" />
+			<enumeration value="RUR" />
+		</restriction>
+	</simpleType>
+
+</schema>

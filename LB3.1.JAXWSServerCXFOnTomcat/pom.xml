@@ -34,13 +34,13 @@
             <artifactId>cxf-rt-transports-http</artifactId>
             <version>${cxf.version}</version>
         </dependency>
-        <!-- need for CXF (Is this should be here?) -->
-        <dependency>
+        <!-- <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-core</artifactId>
             <version>${jaxb-core.version}</version>
-        </dependency>
-        <dependency>
+        </dependency> -->
+         <!-- requred for CXF (Is this should be here?) -->
+       <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>3.2.8.RELEASE</version>

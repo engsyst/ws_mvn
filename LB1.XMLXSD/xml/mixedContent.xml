@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<letterBody xmlns="http://training.epam.com/xmldemo/mixedContent" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://training.epam.com/xmldemo/mixedContent mixedContent.xsd ">
+	<salutation>
+		Dear Mr.
+		<name>Robert Smith</name>
+		.
+	</salutation>
+	Your order of
+	<quantity>1</quantity>
+	<productName>Baby Monitor</productName>
+	shipped from our warehouse on
+	<shipDate>1999-05-21</shipDate>
+	. ....
+</letterBody>

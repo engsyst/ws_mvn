@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:message xmlns:tns="http://training.epam.com/xmldemo/group"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://training.epam.com/xmldemo/group group.xsd ">
+	<tns:email>x@y.z</tns:email>
+	<tns:body>tns:body</tns:body>
+</tns:message>

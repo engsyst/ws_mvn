@@ -4,3 +4,7 @@
 /.idea/
 *.iml
 *.class
+*.jar
+/.settings/
+/.classpath
+/.project

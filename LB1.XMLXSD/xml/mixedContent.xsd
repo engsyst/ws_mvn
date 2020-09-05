@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/mixedContent"
+	xmlns:tns="http://training.epam.com/xmldemo/mixedContent" elementFormDefault="qualified">
+	<element name="letterBody">
+		<complexType mixed="true">
+			<sequence>
+				<element name="salutation">
+					<complexType mixed="true">
+						<sequence>
+							<element name="name" type="string" />
+						</sequence>
+					</complexType>
+				</element>
+				<element name="quantity" type="positiveInteger" />
+				<element name="productName" type="string" />
+				<element name="shipDate" type="date" minOccurs="0" />
+				<!-- etc. -->
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

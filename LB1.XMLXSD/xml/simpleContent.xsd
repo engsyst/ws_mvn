@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://training.epam.com/xmldemo/simpleContent"
+	xmlns:tns="http://training.epam.com/xmldemo/simpleContent"
+	elementFormDefault="qualified">
+	
+	<element name="prices">
+		<complexType>
+			<sequence>
+				<element ref="tns:price" minOccurs="0" maxOccurs="unbounded"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="price">
+		<complexType>
+			<simpleContent>
+				<extension base="decimal">
+					<attribute name="currency" type="string" />
+				</extension>
+			</simpleContent>
+		</complexType>
+	</element>
+</schema>

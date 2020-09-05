@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:order xmlns:tns="http://training.epam.com/xmldemo/entity/order"
+	xmlns:tns1="http://training.epam.com/xmldemo/entity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://training.epam.com/xmldemo/entity/order order.xsd ">
+	<tns:no>1</tns:no>
+	<tns:product id="0">
+		<tns:name>token</tns:name>
+		<tns:description>tns:description</tns:description>
+		<tns:price currency="UAH" value="0.0" />
+		<tns:quantity>0</tns:quantity>
+	</tns:product>
+	<tns:totalPrice currency="UAH">0.0</tns:totalPrice>
+	<tns:delivery id="0">
+		<tns:country>token</tns:country>
+	</tns:delivery>
+</tns:order>

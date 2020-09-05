@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://training.epam.com/xmldemo/entity/order"
+	xmlns:tns="http://training.epam.com/xmldemo/entity/order" 
+	xmlns:ent="http://training.epam.com/xmldemo/entity" 
+	elementFormDefault="qualified">
+	
+	<import namespace="http://training.epam.com/xmldemo/entity" schemaLocation="entity.xsd" />
+
+	<complexType name="Delivery">
+		<complexContent>
+			<extension base="ent:Entity">
+				<sequence>
+					<element name="country" type="token" nillable="true"/>
+					<choice>
+						<sequence minOccurs="1">
+							<element name="address" type="normalizedString" />
+						</sequence>
+						<sequence minOccurs="1">
+							<element name="phone" minOccurs="0">
+								<simpleType>
+									<restriction base="normalizedString">
+										<pattern value="\+\d{12}"></pattern>
+									</restriction>
+								</simpleType>
+							</element>
+						</sequence>
+					</choice>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	
+</schema>
