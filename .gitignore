@@ -7,4 +7,9 @@ target/
 *.class
 *.iml
 *.class
-/.settings/
+.settings/
+.project
+.classpath
+*.jar
+*.mar
+*.aar
