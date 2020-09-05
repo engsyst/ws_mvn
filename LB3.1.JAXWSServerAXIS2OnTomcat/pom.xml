@@ -5,13 +5,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
+
 	<parent>
 		<groupId>ua.nure</groupId>
 		<artifactId>it</artifactId>
 		<version>1.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
-	<artifactId>LB3.1.JAXWSServerAXIS2OnTomcat</artifactId>
+
+	<groupId>ua.nure</groupId>
+ 	<artifactId>LB3.1.JAXWSServerAXIS2OnTomcat</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>JAXWS AXIS2 Example on Tomcat</name>
@@ -37,14 +41,50 @@
 			<type>pom</type>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.ws.xmlschema/xmlschema-core -->
+<!-- 		
+		<dependency>
+		    <groupId>javax.xml.stream</groupId>
+		    <artifactId>stax-api</artifactId>
+		    <version>1.0-2</version>
+		    <optional>true</optional>
+		</dependency>
+ -->
+ 		
+		<dependency>
+		    <groupId>com.sun.xml.ws</groupId>
+		    <artifactId>jaxws-rt</artifactId>
+		    <version>2.3.1</version>
+		</dependency>
+
+ 		
+<!-- 		<dependency>
+		    <groupId>com.sun.xml.ws</groupId>
+		    <artifactId>jaxws-rt</artifactId>
+		    <version>2.3.1</version>
+		    <type>pom</type>
+		</dependency>
+ -->
+<!-- 		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-xjc</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+ -->
+
+<!-- 		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-tools</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+ -->
+<!-- 
 		<dependency>
 		    <groupId>org.apache.ws.xmlschema</groupId>
 		    <artifactId>xmlschema-core</artifactId>
-		    <version>2.2.5</version>
+		    <version>2.2.1</version>
 		    <scope>runtime</scope>
 		</dependency>
-
+ -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -114,19 +154,20 @@
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>2.8.2</version>
 				</plugin>
-<!-- 
-	<plugin>
-		<groupId>org.apache.tomcat.maven</groupId>
-		<artifactId>tomcat7-maven-plugin</artifactId>
-		<version>2.2</version>
-		<configuration>
-			<url>http://localhost:8080/manager/text</url>
-			<username>tomcat</username>
-			<password>tomcat</password>
-			<path>/cxfhello</path>
-		</configuration>
-	</plugin>
- -->
+
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>2.2</version>
+					<configuration>
+						<url>http://localhost:8080/manager/text</url>
+						<username>tomcat</username>
+						<password>tomcat</password>
+						<path>/${appName}</path>
+					</configuration>
+				</plugin>
+
+<!--
  				<plugin>
 					<groupId>org.codehaus.cargo</groupId>
 					<artifactId>cargo-maven2-plugin</artifactId>
@@ -134,7 +175,7 @@
 					<configuration>
 						<container>
 							<containerId>tomcat9x</containerId>
-							<!--<home>~/dev/apache-tomcat-9.0.27</home> -->
+							&lt;!&ndash;<home>~/dev/apache-tomcat-9.0.27</home> &ndash;&gt;
 							<type>embedded</type>
 						</container>
 						<deployables>
@@ -142,7 +183,7 @@
 								<groupId>org.codehaus.cargo</groupId>
 								<artifactId>simple-war</artifactId>
 								<type>war</type>
-								<!-- Override location to point to the exploded webapp. -->
+								&lt;!&ndash; Override location to point to the exploded webapp. &ndash;&gt;
 								<location>${project.build.directory}/${appName}</location>
 								<properties>
 									<context>${appName}</context>
@@ -151,6 +192,7 @@
 						</deployables>
 					</configuration>
 				</plugin>
+-->
 
 			</plugins>
 		</pluginManagement>

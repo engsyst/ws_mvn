@@ -15,14 +15,14 @@ import ua.nure.itech.jaxws.service.inheritance.Hello_Service;
 public class HelloClient {
 
 	// This URL points to the internal wsdl.
-	// In the internal wsdl service URL has changed port to use TCP-Monitor.
+	// The internal wsdl service URL has changed port to use TCP-Monitor.
 	final static String internalUrl = "file:///" + new File("").getAbsolutePath() + "/hello.wsdl";
 
-	// If "Connection refused" exception occurs use server url instead or
+	// If "Connection refused" exception occurs, use server url instead or
 	// run TCP-Monitor on 19090 port.
 	final static String serviceUrl = "http://localhost:9090/hello.wsdl";
 
-	private static final int SIZE = 10;
+	private static final int N = 10;
 
 	public static void main(String[] args) throws MalformedURLException {
 		// uncomment two lines above if you want log messages to the System.out on the client side
@@ -32,16 +32,16 @@ public class HelloClient {
 		// Create service object
 		Hello_Service service = new Hello_Service(new URL(internalUrl));
 
-		// Get client for concrete PORT of HelloService
+		// Get client for the specific Web service PORT of HelloService
 		Hello client = service.getHelloImplPort();
 
-		// call remote operation on service as local method
-		for (int i = 0; i < SIZE; i++) {
+		// Invoke a remote operation on the service as local method
+		for (int i = 0; i < N; i++) {
 			try {
 				System.out.println(client.helloUser("User " + i));
 			} catch (Exception e) {
-				System.out.println("TCP Monitor was not started.\n" +
-						"Try use original wsdl");
+				System.out.println("TCP Monitor is not started.\n" +
+						"Trying to use the original wsdl");
 				service = new Hello_Service(new URL(serviceUrl));
 				client = service.getHelloImplPort();
 			}
