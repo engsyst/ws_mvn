@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://training.epam.com/xmldemo/entity/order"
-	xmlns:tns="http://training.epam.com/xmldemo/entity/order" 
-	xmlns:ent="http://training.epam.com/xmldemo/entity" 
+	targetNamespace="http://it.nure.ua/xmldemo/entity/order"
+	xmlns:tns="http://it.nure.ua/xmldemo/entity/order" 
+	xmlns:ent="http://it.nure.ua/xmldemo/entity" 
 	elementFormDefault="qualified">
 	
-	<import namespace="http://training.epam.com/xmldemo/entity" schemaLocation="entity.xsd" />
+	<import namespace="http://it.nure.ua/xmldemo/entity" schemaLocation="entity.xsd" />
 
 	<complexType name="Delivery">
 		<complexContent>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:order xmlns:tns="http://training.epam.com/xmldemo/entity/order"
-	xmlns:tns1="http://training.epam.com/xmldemo/entity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://training.epam.com/xmldemo/entity/order order.xsd ">
+<tns:order xmlns:tns="http://it.nure.ua/xmldemo/entity/order"
+	xmlns:tns1="http://it.nure.ua/xmldemo/entity" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://it.nure.ua/xmldemo/entity/order order.xsd ">
 	<tns:no>1</tns:no>
 	<tns:product id="0">
 		<tns:name>token</tns:name>

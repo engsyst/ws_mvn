@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:msg xmlns:tns="http://training.epam.com/xmldemo/choce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://training.epam.com/xmldemo/choce choice.xsd ">
+<tns:msg xmlns:tns="http://it.nure.ua/xmldemo/choce" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://it.nure.ua/xmldemo/choce choice.xsd ">
 	<tns:addr>
 		<tns:from>from</tns:from>
 	</tns:addr>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:message xmlns:tns="http://training.epam.com/xmldemo/group"
+<tns:message xmlns:tns="http://it.nure.ua/xmldemo/group"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://training.epam.com/xmldemo/group group.xsd ">
+	xsi:schemaLocation="http://it.nure.ua/xmldemo/group group.xsd ">
 	<tns:email>x@y.z</tns:email>
+	<tns:skype>ksagh</tns:skype>
 	<tns:body>tns:body</tns:body>
 </tns:message>

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:values xmlns:tns="http://training.epam.com/xmldemo/list"
+<tns:values xmlns:tns="http://it.nure.ua/xmldemo/list"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://training.epam.com/xmldemo/list list.xsd ">Мама мыла раму</tns:values>
+	xsi:schemaLocation="http://it.nure.ua/xmldemo/list list.xsd ">Мама мыла раму</tns:values>

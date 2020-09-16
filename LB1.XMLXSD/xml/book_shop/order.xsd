@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://training.epam.com/xmldemo/entity/order"
-	xmlns:tns="http://training.epam.com/xmldemo/entity/order" 
-	xmlns:ent="http://training.epam.com/xmldemo/entity" 
+	targetNamespace="http://it.nure.ua/xmldemo/entity/order"
+	xmlns:tns="http://it.nure.ua/xmldemo/entity/order" 
+	xmlns:ent="http://it.nure.ua/xmldemo/entity" 
 	elementFormDefault="qualified">
 	
 	<annotation>
@@ -14,7 +14,7 @@
 	</annotation>
 	
 	<!-- import: Adds multiple schemas with different target namespace to a document -->
-	<import namespace="http://training.epam.com/xmldemo/entity" schemaLocation="entity.xsd" />
+	<import namespace="http://it.nure.ua/xmldemo/entity" schemaLocation="entity.xsd" />
 	
 	<!-- include: Adds multiple schemas with the same target namespace to a document -->
 	<include schemaLocation="delivery.xsd"></include>

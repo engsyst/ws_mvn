@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/list"
-	xmlns:tns="http://training.epam.com/xmldemo/list" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://it.nure.ua/xmldemo/list"
+	xmlns:tns="http://it.nure.ua/xmldemo/list" elementFormDefault="qualified">
 
 	<simpleType name="Values">
 		<list itemType="string"></list>

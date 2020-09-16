@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/union"
-	xmlns:tns="http://training.epam.com/xmldemo/union" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://it.nure.ua/xmldemo/union"
+	xmlns:tns="http://it.nure.ua/xmldemo/union" elementFormDefault="qualified">
 
 	<element name="sizes">
 		<complexType>

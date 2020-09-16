@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/mixedContent"
-	xmlns:tns="http://training.epam.com/xmldemo/mixedContent" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://it.nure.ua/xmldemo/mixedContent"
+	xmlns:tns="http://it.nure.ua/xmldemo/mixedContent" elementFormDefault="qualified">
 	<element name="letterBody">
 		<complexType mixed="true">
 			<sequence>

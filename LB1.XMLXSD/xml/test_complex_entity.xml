@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <books
-	xmlns="http://training.epam.com/xmldemo"
+	xmlns="http://it.nure.ua/xmldemo"
 	key="value">
-	<!-- books в пространстве имен http://training.epam.com/xmldemo -->
+	<!-- books в пространстве имен http://it.nure.ua/xmldemo -->
 	<book
 		xmlns:a="Namespace A"
 		xmlns:b="Namespace B">

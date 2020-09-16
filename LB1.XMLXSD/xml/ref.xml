@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tns:to
-	xmlns:tns="http://training.epam.com/xmldemo/ref"
+	xmlns:tns="http://it.nure.ua/xmldemo/ref"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://training.epam.com/xmldemo/ref ref.xsd ">
+	xsi:schemaLocation="http://it.nure.ua/xmldemo/ref ref.xsd ">
 Data	
 </tns:to>

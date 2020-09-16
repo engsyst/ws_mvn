@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://training.epam.com/xmldemo"
-	xmlns:tns="http://training.epam.com/xmldemo" 
+	targetNamespace="http://it.nure.ua/xmldemo"
+	xmlns:tns="http://it.nure.ua/xmldemo" 
 	elementFormDefault="qualified">
 	<complexType name="IntType">
 		<!-- XML Schema types to Java types mapping example.

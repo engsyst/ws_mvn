@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/choce"
-	xmlns:tns="http://training.epam.com/xmldemo/choce" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://it.nure.ua/xmldemo/choce"
+	xmlns:tns="http://it.nure.ua/xmldemo/choce" elementFormDefault="qualified">
 
 	<complexType name="choice">
 		<choice>

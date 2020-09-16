@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://training.epam.com/xmldemo/group"
-	xmlns:tns="http://training.epam.com/xmldemo/group" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://it.nure.ua/xmldemo/group"
+	xmlns:tns="http://it.nure.ua/xmldemo/group" elementFormDefault="qualified">
 
 	<group name="contact">
 		<sequence>
@@ -14,6 +14,15 @@
 			<sequence>
 				<group ref="tns:contact" maxOccurs="3"/>
 				<element name="body" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="person">
+		<complexType>
+			<sequence>
+				<group ref="tns:contact" maxOccurs="3"/>
+				<element name="name" type="string"/>
 			</sequence>
 		</complexType>
 	</element>

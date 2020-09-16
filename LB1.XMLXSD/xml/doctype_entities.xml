@@ -2,7 +2,7 @@
 <!DOCTYPE books [
 <!ENTITY copyright "<copyright>&#169; All rights reserved</copyright>" >
 ]>
-<books xmlns:tns="http://training.epam.com/xmldemo">
+<books xmlns:tns="http://it.nure.ua/xmldemo">
 	&copyright;
 	<tns:title>XML</tns:title>
 </books>
