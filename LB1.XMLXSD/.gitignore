@@ -1,4 +1,10 @@
 /bin/
 /target/
+/out/
+/.idea/
+*.iml
+*.class
+*.jar
+/.settings/
 /.classpath
 /.project
