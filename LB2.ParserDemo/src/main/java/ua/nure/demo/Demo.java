@@ -11,6 +11,6 @@ public class Demo {
 		DOMParser.main(new String[] {});
 		SAXParser.main(new String[] {});
 		JAXBParser.main(new String[] {});
-//		XSLTransform.main(new String[] {"orders.xsl", "orders.xml", "orders.html"});
+		XSLTransform.main(new String[] {"orders.xsl", "orders.xml", "orders.html"});
 	}
 }

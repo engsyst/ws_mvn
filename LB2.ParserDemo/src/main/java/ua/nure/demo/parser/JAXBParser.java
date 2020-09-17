@@ -16,7 +16,6 @@ import javax.xml.validation.SchemaFactory;
 
 import org.xml.sax.SAXException;
 
-import ua.nure.order.entity.order.ObjectFactory;
 import ua.nure.order.entity.order.Orders;
 
 /**
