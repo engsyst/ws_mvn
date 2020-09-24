@@ -27,11 +27,53 @@
             <artifactId>rt</artifactId>
             <version>${com.sun.xml.ws.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.sun.xml.ws</groupId>
-            <artifactId>jaxws-maven-plugin</artifactId>
-            <version>${com.sun.xml.ws.version}</version>
-        </dependency>
     </dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>1.9</version>
+					<executions>
+						<execution>
+							<id>add-source</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>add-source</goal>
+							</goals>
+							<configuration>
+								<sources>
+									<source>${project.basedir}/target/generated/src/main/java</source>
+								</sources>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
 
+				<!-- to generate client artefact run maven goal: -->
+				<!-- mvn jaxws:wsimport -->
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>jaxws-maven-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<wsdlUrls>
+							<wsdlUrl>http://localhost:9090/hello?wsdl</wsdlUrl>
+						</wsdlUrls>
+						<keep>true</keep>
+						<sourceDestDir>${project.build.sourceDirectory}</sourceDestDir>
+					</configuration>
+					<executions>
+						<execution>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>wsimport</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>

@@ -18,11 +18,11 @@ public class HelloServer{
     public static void main(String args[]) {
 		// uncomment two lines below if you want log messages to the System.out on the server side
     	
-//    	System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
-//    	System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+    	System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+    	System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
     	
     	// Change implementation class to see different examples
-        Endpoint ep = Endpoint.publish(address, implHelloWithSEI);
+        Endpoint ep = Endpoint.publish(address, implHello);
         System.out.println("Server ready at " + address + "?wsdl ...");
         
         Scanner sc = new Scanner(System.in);
