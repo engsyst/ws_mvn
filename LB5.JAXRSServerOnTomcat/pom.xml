@@ -5,21 +5,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-     <parent>
-         <groupId>ua.nure</groupId>
-         <artifactId>it</artifactId>
-         <version>1.0-SNAPSHOT</version>
-         <relativePath>../pom.xml</relativePath>
-     </parent>
+
+    <parent>
+        <groupId>ua.nure</groupId>
+        <artifactId>it</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
     <artifactId>LB5.JAXRSServerOnTomcat</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <properties>
-        <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Java version -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
         <jackson.core.version>2.10.1</jackson.core.version>
         <log4j.version>1.2.17</log4j.version>
         <jersey.version>2.29.1</jersey.version>
+
+        <!-- defines war name and context path -->
+        <appName>shop</appName>
     </properties>
 
     <name>Books REST Web-Service</name>
@@ -110,7 +118,7 @@
 
 
     <build>
-        <finalName>shop</finalName>
+        <finalName>${appName}</finalName>
         <pluginManagement>
             <!-- lock down plugins versions to avoid using Maven
                  defaults (may be moved to parent pom) -->
@@ -144,17 +152,45 @@
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>2.8.2</version>
                 </plugin>
+
+                <!-- https://codehaus-cargo.github.io/cargo/Maven2+Plugin+Getting+Started.html -->
                 <plugin>
-                    <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.2</version>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven2-plugin</artifactId>
+                    <version>1.7.6</version>
                     <configuration>
-                        <url>http://localhost:8080/manager/text</url>
-                        <username>tomcat</username>
-                        <password>tomcat</password>
-                        <path>/shop</path>
+                        <container>
+                            <containerId>tomcat9x</containerId>
+                            <type>embedded</type>
+                        </container>
+                        <deployables>
+                            <deployable>
+                                <groupId>org.codehaus.cargo</groupId>
+                                <artifactId>simple-war</artifactId>
+                                <type>war</type>
+                                <!-- Override location to point to the exploded webapp. -->
+                                <location>${project.build.directory}/${appName}</location>
+                                <properties>
+                                    <context>${appName}</context>
+                                </properties>
+                            </deployable>
+                        </deployables>
                     </configuration>
                 </plugin>
+
+                <!--
+                                <plugin>
+                                    <groupId>org.apache.tomcat.maven</groupId>
+                                    <artifactId>tomcat7-maven-plugin</artifactId>
+                                    <version>2.2</version>
+                                    <configuration>
+                                        <url>http://localhost:8080/manager/text</url>
+                                        <username>tomcat</username>
+                                        <password>tomcat</password>
+                                        <path>/shop</path>
+                                    </configuration>
+                                </plugin>
+                -->
             </plugins>
         </pluginManagement>
     </build>

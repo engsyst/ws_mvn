@@ -10,10 +10,9 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <artifactId>LB3mvnWSClientJAXWSExample</artifactId>
+    <artifactId>LB3.1JAXWSClient</artifactId>
     <name>JaxWS Client Demo</name>
     
     <properties>
@@ -31,7 +30,7 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<plugin>
+				<!-- <plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
 					<version>1.9</version>
@@ -49,7 +48,7 @@
 							</configuration>
 						</execution>
 					</executions>
-				</plugin>
+				</plugin> -->
 
 				<!-- to generate client artefact run maven goal: -->
 				<!-- mvn jaxws:wsimport -->

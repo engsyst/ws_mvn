@@ -8,12 +8,12 @@ import ua.nure.itech.jaxws.service.HelloService;
 
 public class HelloClient {
 
-	// this string must be equal server url
-	final static String url = "http://localhost:8080/hello/ws/hello?wsdl";
+	// this string must be equal to the server url
+	final static String url = "http://localhost:9090/hello?wsdl";
 	private static final int SIZE = 10;
 
 	public static void main(String[] args) throws MalformedURLException {
-		// uncomment two lines above if you want log messages to the System.out on the client side
+		// uncomment two lines above if you want to log messages into the System.out on the client side
 //		System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
 //		System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");		
 
