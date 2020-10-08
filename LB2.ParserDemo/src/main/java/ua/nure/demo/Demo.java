@@ -1,16 +1,15 @@
 package ua.nure.demo;
 
-import ua.nure.demo.parser.DOMParser;
-import ua.nure.demo.parser.JAXBParser;
-import ua.nure.demo.parser.SAXParser;
-import ua.nure.demo.parser.XSLTransform;
+import ua.nure.demo.parser.*;
 
 public class Demo {
 
 	public static void main(String[] args) throws Exception {
 		DOMParser.main(new String[] {});
 		SAXParser.main(new String[] {});
+		StaxParser.main(new String[] {});
+		Stax2Parser.main(new String[] {});
 		JAXBParser.main(new String[] {});
-		XSLTransform.main(new String[] {"orders.xsl", "orders.xml", "orders.html"});
+//		XSLTransform.main(new String[] {"listOrder.xsl", "orders.xml", "orders.html"});
 	}
 }

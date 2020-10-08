@@ -1,10 +1,6 @@
 package shop;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import shop.entity.Book;
@@ -16,15 +12,15 @@ import shop.service.ProductNotValidException;
 @javax.annotation.ManagedBean
 public class Store {
 
-	private static Map<Long, ProductLine> items;
-	private static long key;
+	final private Map<Long, ProductLine> items;
+	private long key;
 	private static Store instance;
 
-	static {
+	{
 		items = new LinkedHashMap<>();
-		items.put(++key, new ProductLine(new Book(key, "XML", 250, null, null, Arrays.asList("Pupkin"), null), 10));
+		items.put(++key, new ProductLine(new Book(key, "XML", 250, null, null, Collections.singletonList("Pupkin"), null), 10));
 		items.put(++key, new ProductLine(
-				new Book(key, "JAX-WS в примерах", 250, null, null, Arrays.asList("Pupkin"), null), 10));
+				new Book(key, "JAX-WS в примерах", 250, null, null, Collections.singletonList("Pupkin"), null), 10));
 		items.put(++key, new ProductLine(new Journal(key, "SOAP Web-services", 50, null, null, null), 10));
 	}
 
@@ -39,10 +35,11 @@ public class Store {
 	}
 
 	public synchronized List<ProductLine> all(String... pattern) {
-		if (pattern == null || pattern.length == 0) {
+		if (pattern == null || pattern.length == 1 || pattern[0] == null) {
 			return new ArrayList<>(items.values());
 		}
-		return new ArrayList<>(items.values().stream().filter(p -> p.getProduct().getTitle().matches("(?Uui).*" + pattern[0] + ".*")).collect(Collectors.toList()));
+		return items.values().stream().filter(p -> p.getProduct().getTitle()
+				.matches("(?Uui).*" + pattern[0] + ".*")).collect(Collectors.toList());
 	}
 
 	public synchronized long add(ProductLine product) throws ProductNotValidException {
@@ -65,13 +62,15 @@ public class Store {
 	}
 
 	public synchronized void remove(long id) throws ProductNotAvailableException {
-		items.remove(id);
+		if (items.remove(id) == null) {
+			throw new ProductNotAvailableException("Не действительный товар, id: " + id);
+		};
 	}
-	
-	public synchronized void clear() throws ProductNotAvailableException {
+
+	public synchronized void clear() {
 		items.clear();
 	}
-	
+
 	public synchronized void update(ProductLine product) throws ProductNotAvailableException {
 		items.put(getKey(product), product);
 	}

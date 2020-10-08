@@ -1,6 +1,5 @@
 package shop.service;
 
-import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -17,10 +16,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.container.AsyncResponse;
 import javax.ws.rs.container.Suspended;
-import javax.ws.rs.container.TimeoutHandler;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.xml.bind.JAXBException;
 
 import shop.Store;
 import shop.entity.Product;
@@ -42,7 +39,7 @@ public class ProductServiceRestImpl {
 	}
 
 	@PostConstruct
-	public void init() throws JAXBException {
+	public void init() {
 		log("init");
 		store = Store.getInstance();
 	}
@@ -57,36 +54,28 @@ public class ProductServiceRestImpl {
 	@GET
 	public Response all() {
 		log("all");
-		return Response.ok(new ProductList(store.all().stream().
-				map(p -> p.getProduct()).collect(Collectors.toList()))
+		return Response.ok(new ProductList(store.all(null).stream().
+				map(ProductLine::getProduct).collect(Collectors.toList()))
 		).build();
 	}
 	
 	@GET
 	@Path("async")
-	public void longRuningJob(@Suspended AsyncResponse ar) {
-		log("longRuningJob");
-		ar.setTimeoutHandler(new TimeoutHandler() {
-			@Override
-			public void handleTimeout(AsyncResponse ar) {
-				ar.resume(Response.status(Status.SERVICE_UNAVAILABLE)
-						.entity("Operation timed out -- please try again")
-						.build());
-			}
-		});
+	public void longRunningJob(@Suspended AsyncResponse ar) {
+		log("longRunningJob");
+		ar.setTimeoutHandler(ar1 -> ar1.resume(Response.status(Status.SERVICE_UNAVAILABLE)
+				.entity("Operation timed out -- please try again")
+				.build()));
 		ar.setTimeout(LONG_WORK_WAIT_TIMEOUT + 5, TimeUnit.MILLISECONDS);
 
-		executor. execute(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					System.out.println("Begin long work");
-					Thread.sleep(LONG_WORK_WAIT_TIMEOUT);
-					ar.resume(all());
-					System.out.println("End long work");
-				} catch (Exception e) {
-					System.err.println("Aborted");
-				}
+		executor. execute(() -> {
+			try {
+				System.out.println("Begin long work");
+				Thread.sleep(LONG_WORK_WAIT_TIMEOUT);
+				ar.resume(all());
+				System.out.println("End long work");
+			} catch (Exception e) {
+				System.err.println("Aborted");
 			}
 		});
 	}
@@ -96,11 +85,11 @@ public class ProductServiceRestImpl {
 	public ProductList find(@QueryParam("pattern") String pattern) {
 		log("find");
 		return new ProductList(store.all(pattern).stream().
-				map(p -> p.getProduct()).collect(Collectors.toList()));
+				map(ProductLine::getProduct).collect(Collectors.toList()));
 	}
 	
 	@Path("search")
-	public ProductsSearcher find() throws IOException {
+	public ProductsSearcher find() {
 		log("find");
 		return new ProductsSearcher();
 	}
@@ -123,13 +112,13 @@ public class ProductServiceRestImpl {
 	}
 
 	@POST
-	public void update(Product product, @QueryParam("amount") int amount) throws ProductNotValidException, ProductNotAvailableException {
+	public void update(Product product, @QueryParam("amount") int amount) throws ProductNotAvailableException {
 		log("update");
 		store.update(new ProductLine(product, amount));
 	}
 
 	@DELETE
-	public void remove() throws ProductNotAvailableException {
+	public void remove() {
 		log("remove");
 		store.clear();
 	}

@@ -93,7 +93,7 @@ public class Book
      */
     public List<String> getAuthor() {
         if (author == null) {
-            author = new ArrayList<String>();
+            author = new ArrayList<>();
         }
         return this.author;
     }

@@ -25,7 +25,7 @@ import shop.entity.ProductList;
 @Produces(MediaType.APPLICATION_XML)
 public class ProductListXMLMessageWriter implements MessageBodyWriter<List<Product>> {
 
-	private static final String CONMSUMES_TYPE = "java.util.List<shop.entity.Product>";
+	private static final String CONSUMES_TYPE = "java.util.List<shop.entity.Product>";
 
 	JAXBContext ctx;
 	public ProductListXMLMessageWriter() throws JAXBException {
@@ -35,7 +35,7 @@ public class ProductListXMLMessageWriter implements MessageBodyWriter<List<Produ
 	@Override
 	public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
 		String gtName = genericType.getTypeName();
-		if (CONMSUMES_TYPE.equals(gtName)) {
+		if (CONSUMES_TYPE.equals(gtName)) {
 			return true;
 		}
 		return false;

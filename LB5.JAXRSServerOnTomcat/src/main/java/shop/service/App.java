@@ -20,12 +20,12 @@ public class App extends Application {
     @Override
     public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<>();
-		classes.add(ProductServiceRestImpl.class);
-		classes.add(TextPlainMessageBodyWriter.class);
-		classes.add(ProductXMLMessageBodyWriter.class);
-		classes.add(ProductListJSONMessageBodyWriter.class);
-		classes.add(JSONMessageBodyWriter.class);
-		classes.add(ProductNotAvailableExceptionMapper.class);
+//		classes.add(ProductServiceRestImpl.class);
+//		classes.add(TextPlainMessageBodyWriter.class);
+//		classes.add(ProductXMLMessageBodyWriter.class);
+//		classes.add(ProductListJSONMessageBodyWriter.class);
+//		classes.add(JSONMessageBodyWriter.class);
+//		classes.add(ProductNotAvailableExceptionMapper.class);
 		return Collections.unmodifiableSet(classes);
     }
 }

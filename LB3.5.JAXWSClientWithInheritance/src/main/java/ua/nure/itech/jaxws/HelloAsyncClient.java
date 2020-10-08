@@ -47,8 +47,8 @@ public class HelloAsyncClient {
 	final static String url = "file:///" + new File("").getAbsolutePath() + "/META-INF/wsdl/HelloService.wsdl";
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
-		// Create service object
-		// You can use constructor without parameters see javadoc for url  
+		// Create the service object
+		// You can use the constructor without parameters see javadoc for url  
 		HelloService helloSEI = new HelloService(new URL(url));
 		
 		// Get service implementation

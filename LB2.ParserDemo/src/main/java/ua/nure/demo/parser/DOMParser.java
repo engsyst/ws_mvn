@@ -1,14 +1,19 @@
 package ua.nure.demo.parser;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.XMLConstants;
+import javax.xml.bind.ValidationException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -28,7 +33,7 @@ import ua.nure.order.entity.order.OrderItem;
 public class DOMParser {
 	private static boolean logEnabled = false;
 
-	public static void log(Object o) {
+	private static void log(Object o) {
 		if (logEnabled) {
 			System.out.println(o);
 		}
@@ -97,7 +102,7 @@ public class DOMParser {
 				book.setCategory(Category.fromValue(item.getTextContent()));
 			} else if (Const.TAG_ISBN.equals(item.getLocalName())) {
 				log(item.getLocalName() + " = " + item.getTextContent());
-				book.setTitle(item.getTextContent());
+				book.setIsbn(item.getTextContent());
 			} else if (Const.TAG_PRICE.equals(item.getLocalName())) {
 				log(item.getLocalName() + " = " + item.getTextContent());
 				book.setPrice(Double.parseDouble(item.getTextContent()));
@@ -106,20 +111,28 @@ public class DOMParser {
 		return book;
 	}
 
-	public List<Order> parse(InputStream in) throws ParserConfigurationException, SAXException, IOException {
+	public List<Order> parse(InputStream in, Schema schema) throws ParserConfigurationException, SAXException, IOException {
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		dbf.setNamespaceAware(true);
-		
+
+		// Parser should not parse documents with DTD
+		dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+//		dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, ""); 		// compliant
+
 		// make parser validating
 		dbf.setFeature(Const.FEATURE__TURN_VALIDATION_ON, true);
 		dbf.setFeature(Const.FEATURE__TURN_SCHEMA_VALIDATION_ON, true);
-
+		// set the validation against schema
+		dbf.setSchema(schema);
+		
 		DocumentBuilder db = dbf.newDocumentBuilder();
+
 		db.setErrorHandler(new DefaultHandler() {
 			@Override
 			public void error(SAXParseException e) throws SAXException {
-				throw e; // <-- throw exception if XML document is NOT valid
+				System.err.println(e.getMessage()); // log error
+//				throw e;
 			}
 		});
 
@@ -132,18 +145,27 @@ public class DOMParser {
 		for (int i = 0; i < xmlOrders.getLength(); i++) {
 			orders.add(parseOrder(xmlOrders.item(i)));
 		}
-		// String id = e.getAttribute(Const.ATTR_ID);
 		return orders;
 
 	}
 
 	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+		// Create against validation schema
+		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = sf.newSchema(new File("orders.xsd"));
+
 		System.out.println("--== DOM Parser ==--");
 		DOMParser domParser = new DOMParser();
 		InputStream in = new FileInputStream("orders.xml");
-		List<Order> orders = domParser.parse(in);
+		List<Order> orders = domParser.parse(in, schema);
 		System.out.println("====================================");
 		System.out.println("Here is the orders: \n" + orders);
+		System.out.println("====================================");
+
+		in = new FileInputStream("invalid_orders.xml");
+		orders = domParser.parse(in, schema);
+		System.out.println("====================================");
+		System.out.println("Here is the orders from invalid xml: \n" + orders);
 		System.out.println("====================================");
 	}
 }

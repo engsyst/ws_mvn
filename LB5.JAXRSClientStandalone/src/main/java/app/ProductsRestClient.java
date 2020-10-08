@@ -9,17 +9,11 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.InvocationCallback;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Application;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.core.*;
 
 import shop.entity.Product;
 import shop.entity.ProductList;
 import shop.service.Constants;
-import shop.service.rest.ProductJSONMessageBodyReader;
-import shop.service.rest.ProductListJSONMessageBodyReader;
 
 public class ProductsRestClient extends Application {
 
@@ -27,8 +21,8 @@ public class ProductsRestClient extends Application {
 			Constants.PRODUCTS_SERVICE_PATH);
 
 	private static class Canceler<T> implements Runnable {
-		final private Future<T> future;
-		private long timeout = 30_000;
+		private final Future<T> future;
+		private final long timeout;
 		
 		public Canceler(final Future<T> future, long timeout) {
 			this.future = future;
@@ -39,6 +33,7 @@ public class ProductsRestClient extends Application {
 			try {
 				Thread.sleep(timeout);
 			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
 				return;
 			}
 
@@ -49,17 +44,20 @@ public class ProductsRestClient extends Application {
 	}
 	
 	public static void main(String[] args) {
-		ProductList products = null;
-		List<Product> list = null;
+		ProductList products;
+		List<Product> list;
 		Product product = null;
 		
 		Client client = ClientBuilder.newClient();
 		// Дополнительная конфигурация клиента по умолчанию
-		client
-			.register(ProductJSONMessageBodyReader.class)
-			.register(ProductListJSONMessageBodyReader.class)
+//		client
+//			.register(JAXBContextProvider.class)
+//			.register(ProductJSONMessageBodyReader.class)
+//			.register(ProductListJSONMessageBodyReader.class)
+//			.register(ProductXMLMessageReader.class)
+//			.register(ProductXMLMessageWriter.class)
 //			.register(JacksonJsonProvider.class)
-			;
+//			;
 
 		WebTarget target = client.target(BASE_URI);
 		// Конфигурирование контекста запроса если необходимо
@@ -77,7 +75,7 @@ public class ProductsRestClient extends Application {
 		// MultivaluedMap<String, Object> headers = r.getHeaders();
 		// ...
 
-		String body = null;
+		String body;
 		if (Response.Status.OK.getStatusCode() == resp.getStatus()) {
 			// Прочитать тело ответа
 			body = resp.readEntity(String.class);
@@ -91,7 +89,7 @@ public class ProductsRestClient extends Application {
 
 		System.out.println("\n---=== XML to ProductList ===---");
 		request = target.request()
-				.header("Accept", MediaType.APPLICATION_XML);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 		try {
 			products = request.get(ProductList.class);
 			System.out.println(products);
@@ -101,7 +99,7 @@ public class ProductsRestClient extends Application {
 
 		System.out.println("\n---=== XML to List<Product> ===---");
 		request = target.request()
-				.header("Accept", MediaType.APPLICATION_XML);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 		try {
 			list = request.get(new GenericType<List<Product>>() {});
 			System.out.println(list);
@@ -112,7 +110,7 @@ public class ProductsRestClient extends Application {
 		System.out.println("\n---=== One product ===---");
 		System.out.println("\n---=== XML to String ===---");
 		request = target.path("2").request()
-				.header("Accept", MediaType.APPLICATION_XML);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 		body = request.get(String.class);
 		System.out.println(body);
 
@@ -120,7 +118,7 @@ public class ProductsRestClient extends Application {
 		request = target
 				.path("2")
 				.request()
-				.header("Accept", MediaType.APPLICATION_XML);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 		try {
 			product = request.get(Product.class);
 		} catch (Exception e) {
@@ -132,14 +130,14 @@ public class ProductsRestClient extends Application {
 		System.out.println("\n---=== JSON to String ===---");
 		request = target
 				.request()
-				.header("Accept", MediaType.APPLICATION_JSON);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		body = request.get(String.class);
 		System.out.println(body);
 
 		System.out.println("\n---=== JSON to ProductList ===---");
 		request = target
 				.request()
-				.header("Accept", MediaType.APPLICATION_JSON);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		try {
 			products = request.get(ProductList.class);
 			System.out.println(products);
@@ -151,9 +149,10 @@ public class ProductsRestClient extends Application {
 		request = target
 				.path("search;title=x;author=pup")
 				.request()
-				.header("Accept", MediaType.APPLICATION_JSON);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		try {
-			list = request.get(new GenericType<List<Product>>() {});
+			Response response = request.get();
+			list = response.readEntity(new GenericType<List<Product>>() {});
 			System.out.println(list);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -162,19 +161,19 @@ public class ProductsRestClient extends Application {
 		System.out.println("\n---=== One product ===---");
 		System.out.println("\n---=== TEXT to String ===---");
 		request = target.path("2").request()
-				.header("Accept", MediaType.TEXT_PLAIN);
+				.header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN);
 		body = request.get(String.class);
 		System.out.println(body);
 
 		System.out.println("\n---=== JSON to String ===---");
 		request = target.path("2").request()
-				.header("Accept", MediaType.APPLICATION_JSON);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		body = request.get(String.class);
 		System.out.println(body);
 
 		System.out.println("\n---=== JSON to Product ===---");
 		request = target.path("2").request()
-				.header("Accept", MediaType.APPLICATION_JSON);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		try {
 			product = request.get(Product.class);
 			System.out.println(product);
@@ -184,9 +183,9 @@ public class ProductsRestClient extends Application {
 		
 		System.out.println("\n---=== Async XML to Product ===---");
 		request = target.path("2").request()
-				.header("Accept", MediaType.APPLICATION_XML);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 
-		Future<Response> future = null;
+		Future<Response> future;
 		try {
 			future = request.async().get();
 			while (!future.isDone()) {
@@ -227,7 +226,7 @@ public class ProductsRestClient extends Application {
 		
 		System.out.println("\n---=== Async longWork XML to ProductList ===---");
 		request = target.path("async").request()
-				.header("Accept", MediaType.APPLICATION_XML);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 
 		try {
 			future = request.async().get();

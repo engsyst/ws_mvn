@@ -153,7 +153,7 @@ public abstract class Product
      */
     public List<String> getCategories() {
         if (categories == null) {
-            categories = new ArrayList<String>();
+            categories = new ArrayList<>();
         }
         return this.categories;
     }

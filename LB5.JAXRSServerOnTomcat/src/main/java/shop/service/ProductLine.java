@@ -59,11 +59,10 @@ public class ProductLine {
 			return false;
 		ProductLine other = (ProductLine) obj;
 		if (product == null) {
-			if (other.product != null)
-				return false;
-		} else if (!product.equals(other.product))
-			return false;
-		return true;
+			return other.product == null;
+		} else {
+			return product.equals(other.product);
+		}
 	}
 
 }

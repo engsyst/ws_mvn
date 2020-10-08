@@ -9,7 +9,6 @@ import ua.nure.order.entity.book.Category;
 import ua.nure.order.entity.order.Order;
 import ua.nure.order.entity.order.OrderItem;
 
-import javax.xml.XMLConstants;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.FileInputStream;

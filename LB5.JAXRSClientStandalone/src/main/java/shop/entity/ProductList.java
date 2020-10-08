@@ -77,7 +77,7 @@ public class ProductList {
      */
     public List<Product> getProduct() {
         if (product == null) {
-            product = new ArrayList<Product>();
+            product = new ArrayList<>();
         }
         return this.product;
     }

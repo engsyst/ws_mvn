@@ -15,34 +15,34 @@ public interface BookService {
 
 	@WebMethod()
 	@WebResult(targetNamespace="http://order.nure.ua/entity")
-	public abstract Book getBook(
+	public Book getBook(
 			@WebParam(name="id")
 			int id) throws DAOException;
 
 	@WebMethod()
-	public abstract int addBook(
+	public int addBook(
 			@WebParam(name="book", targetNamespace="http://order.nure.ua/entity")
 			Book book) throws DAOException;
 	
 	@WebMethod()
 	@WebResult(targetNamespace="http://order.nure.ua/entity")
-	public abstract Book deleteBook(
+	public Book deleteBook(
 			@WebParam(name="id")
 			int id) throws DAOException;
 	
 	@WebMethod()
 	@WebResult(targetNamespace="http://order.nure.ua/entity")
-	public abstract Collection<Book> listBooks();
+	public Collection<Book> listBooks();
 
 	@WebMethod()
 	@WebResult(targetNamespace="http://order.nure.ua/entity")
-	public abstract Collection<Book> findByTitle(
+	public Collection<Book> findByTitle(
 			@WebParam(name="pattern")
 			String pattern);
 	
 	@WebMethod()
 	@WebResult(targetNamespace="http://order.nure.ua/entity")
-	public abstract Collection<Book> findByAuthor(
+	public Collection<Book> findByAuthor(
 			@WebParam(name="pattern")
 			String pattern);
 

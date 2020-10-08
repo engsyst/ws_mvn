@@ -22,9 +22,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <jackson.core.version>2.10.1</jackson.core.version>
+        <jackson.core.version>2.11.2</jackson.core.version>
         <log4j.version>1.2.17</log4j.version>
-        <jersey.version>2.29.1</jersey.version>
+        <jersey.version>2.32</jersey.version>
 
         <!-- defines war name and context path -->
         <appName>shop</appName>
@@ -50,7 +50,7 @@
         <!-- JaxRS API -->
         <dependency>
             <groupId>javax.ws.rs</groupId>
-            <artifactId>javax.ws.rs-api</artifactId>
+                <artifactId>javax.ws.rs-api</artifactId>
             <version>2.1.1</version>
         </dependency>
 
@@ -74,6 +74,16 @@
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
             <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-jaxb</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-jackson</artifactId>
+            <version>2.32</version>
         </dependency>
 
         <!-- jackson -->
