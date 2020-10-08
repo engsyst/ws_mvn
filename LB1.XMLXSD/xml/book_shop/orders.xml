@@ -27,7 +27,7 @@
 		</tns:product>
 		<tns:totalPrice currency="UAH">0.0</tns:totalPrice>
 		<tns:delivery id="0">
-			<tns:country xsi:nil="true" />
+			<tns:country/>
 			<tns:address></tns:address>
 		</tns:delivery>
 	</tns:order>

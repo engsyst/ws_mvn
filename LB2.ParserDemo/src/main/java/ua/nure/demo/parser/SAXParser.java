@@ -1,30 +1,28 @@
 package ua.nure.demo.parser;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParserFactory;
-
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-
 import ua.nure.order.entity.book.Author;
 import ua.nure.order.entity.book.Book;
 import ua.nure.order.entity.book.Category;
 import ua.nure.order.entity.order.Order;
 import ua.nure.order.entity.order.OrderItem;
 
+import javax.xml.XMLConstants;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 public class SAXParser extends DefaultHandler {
-	private static boolean logEnabled = false;
+	private static final boolean LOG_ENABLED = false;
 
 	public static void log(Object o) {
-		if (logEnabled) {
+		if (LOG_ENABLED) {
 			System.out.println(o);
 		}
 	}
@@ -45,11 +43,9 @@ public class SAXParser extends DefaultHandler {
 	@Override
 	public void error(org.xml.sax.SAXParseException e) throws SAXException {
 		throw e; // throw exception if xml not valid
-	};
+	}
 
 	public List<Order> parse(InputStream in) throws ParserConfigurationException, SAXException, IOException {
-		List<Order> orders = new ArrayList<>();
-
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 
 		factory.setNamespaceAware(true);
@@ -64,7 +60,7 @@ public class SAXParser extends DefaultHandler {
 	}
 
 	@Override
-	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+	public void startElement(String uri, String localName, String qName, Attributes attributes) {
 
 		current = localName;
 
@@ -92,7 +88,7 @@ public class SAXParser extends DefaultHandler {
 	}
 
 	@Override
-	public void characters(char[] ch, int start, int length) throws SAXException {
+	public void characters(char[] ch, int start, int length) {
 		if (Const.TAG_COUNT.equals(current)) {
 			if (Const.TAG_ORDERITEM.equals(countParent)) {
 				item.setCount(Integer.parseInt(new String(ch, start, length)));
@@ -115,23 +111,23 @@ public class SAXParser extends DefaultHandler {
 	}
 
 	@Override
-	public void endElement(String uri, String localName, String qName) throws SAXException {
+	public void endElement(String uri, String localName, String qName) {
 		if (Const.TAG_ORDER.equals(localName)) {
 			orders.add(order);
 			log(current + " " + order);
 		} else if (Const.TAG_ORDERITEM.equals(localName)) {
 			order.getOrderItem().add(item);
-//			log(current + " " + item);
+			log(current + " " + item);
 		} else if (Const.TAG_BOOK.equals(localName)) {
 			item.setBook(book);
-//			log(current + " " + book);
+			log(current + " " + book);
 		} else if (Const.TAG_AUTHOR.equals(localName)) {
 			book.getAuthor().add(author);
 		}
 	}
 
 	public static void main(String[] args)
-			throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+			throws ParserConfigurationException, SAXException, IOException {
 		System.out.println("--== SAX Parser ==--");
 		SAXParser parser = new SAXParser();
 		parser.parse(new FileInputStream("orders.xml"));

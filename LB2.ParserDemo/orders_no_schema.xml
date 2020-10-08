@@ -6,7 +6,6 @@
 			<tns:count>1</tns:count>
 			<tns:book id="1">
 				<bk:title>title</bk:title>
-				<bk:title>title</bk:title>
 				<bk:author id="1">
 					<bk:title>author 1</bk:title>
 				</bk:author>

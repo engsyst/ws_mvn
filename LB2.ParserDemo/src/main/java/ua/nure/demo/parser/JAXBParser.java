@@ -36,7 +36,8 @@ public class JAXBParser {
 	 *            External XSD for validation. If equals to "", validation will
 	 *            be against XSD indicated in XML document. If equals to null,
 	 *            there is no validation during Orders object loading.
-	 * @param ObjectFactoryclass1 
+	 * @param objectFactory
+	 * 	          ObjectFactory class
 	 * @return Orders object, container with info from the input XML document.
 	 */
 	public static Orders loadOrders(final String xmlFileName,
@@ -48,7 +49,7 @@ public class JAXBParser {
 		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
 		if (xsdFileName != null) { // <-- setup validation on
-			Schema schema = null;			
+			Schema schema = null;
 			if ("".equals(xsdFileName)) {
 				// setup validation against XSD pointed in XML
 				schema = sf.newSchema();
@@ -56,7 +57,7 @@ public class JAXBParser {
 				// setup validation against external XSD
 				schema = sf.newSchema(new File(xsdFileName));
 			}
-			
+
 			unmarshaller.setSchema(schema); // <-- set XML schema for validation
 
 			// set up handler
@@ -144,7 +145,7 @@ public class JAXBParser {
 		System.out.println("--== JAXB Parser ==--");
 		// load Orders object from NOT valid XML (success, just prints validation
 		// warning)
-		Orders orders = loadOrders(Const.XML_FILE, Const.XSD_FILE, Const.OBJECT_FACTORY);
+		Orders orders = loadOrders(Const.INVALID_XML_FILE, Const.XSD_FILE, Const.OBJECT_FACTORY);
 
 		// we have Orders object at this point
 		System.out.println("====================================");
