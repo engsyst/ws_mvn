@@ -12,7 +12,7 @@ import shop.service.ProductNotValidException;
 @javax.annotation.ManagedBean
 public class Store {
 
-	final private Map<Long, ProductLine> items;
+	private final Map<Long, ProductLine> items;
 	private long key;
 	private static Store instance;
 
@@ -35,7 +35,7 @@ public class Store {
 	}
 
 	public synchronized List<ProductLine> all(String... pattern) {
-		if (pattern == null || pattern.length == 1 || pattern[0] == null) {
+		if (isEmptyArray(pattern)) {
 			return new ArrayList<>(items.values());
 		}
 		return items.values().stream().filter(p -> p.getProduct().getTitle()
@@ -64,7 +64,7 @@ public class Store {
 	public synchronized void remove(long id) throws ProductNotAvailableException {
 		if (items.remove(id) == null) {
 			throw new ProductNotAvailableException("Не действительный товар, id: " + id);
-		};
+		}
 	}
 
 	public synchronized void clear() {
@@ -89,5 +89,17 @@ public class Store {
 			throw new ProductNotAvailableException("Не действительный товар, id: " + product.getId());
 		}
 		return p.getId();
+	}
+	
+	private boolean isEmptyArray(String[] values) {
+		if (values == null || values.length == 0) {
+			return true;
+		}
+		for (String s : values) {
+			if (s == null || s.trim().isEmpty()) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

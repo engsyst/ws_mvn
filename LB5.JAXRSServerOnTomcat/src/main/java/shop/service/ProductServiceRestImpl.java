@@ -26,7 +26,7 @@ import shop.entity.ProductList;
 @Path(Constants.PRODUCTS_SERVICE_PATH)
 public class ProductServiceRestImpl {
 
-	private static final int LONG_WORK_WAIT_TIMEOUT = 1000;
+	private static final long LONG_WORK_WAIT_TIMEOUT = 1000;
 
 	private static final int DEFAULT_THREAD_POOL_SIZE = 10;
 
@@ -54,7 +54,7 @@ public class ProductServiceRestImpl {
 	@GET
 	public Response all() {
 		log("all");
-		return Response.ok(new ProductList(store.all(null).stream().
+		return Response.ok(new ProductList(store.all("").stream().
 				map(ProductLine::getProduct).collect(Collectors.toList()))
 		).build();
 	}

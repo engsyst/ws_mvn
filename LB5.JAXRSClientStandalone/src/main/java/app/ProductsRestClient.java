@@ -64,7 +64,7 @@ public class ProductsRestClient extends Application {
 		// ... 
 
 		System.out.println("\n---=== All products ===---");
-		System.out.println("\n---=== XML to String ===---");
+		System.out.println("\n--- XML to String ---");
 		Builder request = target.request()
 				.accept(MediaType.APPLICATION_XML);
 		
@@ -87,9 +87,9 @@ public class ProductsRestClient extends Application {
 		body = request.get(String.class);
 		System.out.println(body);
 
-		System.out.println("\n---=== XML to ProductList ===---");
-		request = target.request()
-				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
+		System.out.println("\n--- XML to ProductList ---");
+//		request = target.request()
+//				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 		try {
 			products = request.get(ProductList.class);
 			System.out.println(products);
@@ -97,9 +97,9 @@ public class ProductsRestClient extends Application {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("\n---=== XML to List<Product> ===---");
-		request = target.request()
-				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
+		System.out.println("\n--- XML to List<Product> ---");
+//		request = target.request()
+//				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 		try {
 			list = request.get(new GenericType<List<Product>>() {});
 			System.out.println(list);
@@ -107,37 +107,17 @@ public class ProductsRestClient extends Application {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("\n---=== One product ===---");
-		System.out.println("\n---=== XML to String ===---");
-		request = target.path("2").request()
-				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
-		body = request.get(String.class);
-		System.out.println(body);
-
-		System.out.println("\n---=== XML to Product ===---");
-		request = target
-				.path("2")
-				.request()
-				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
-		try {
-			product = request.get(Product.class);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		System.out.println(product);
-
-		System.out.println("\n---=== All products ===---");
-		System.out.println("\n---=== JSON to String ===---");
+		System.out.println("\n--- JSON to String ---");
 		request = target
 				.request()
 				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		body = request.get(String.class);
 		System.out.println(body);
 
-		System.out.println("\n---=== JSON to ProductList ===---");
-		request = target
-				.request()
-				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
+		System.out.println("\n--- JSON to ProductList ---");
+//		request = target
+//				.request()
+//				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		try {
 			products = request.get(ProductList.class);
 			System.out.println(products);
@@ -145,25 +125,39 @@ public class ProductsRestClient extends Application {
 			System.out.println(e.getMessage());
 		}
 
-		System.out.println("\n---=== JSON to List<Product> ===---");
-		request = target
-				.path("search;title=x;author=pup")
-				.request()
-				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
+		System.out.println("\n--- JSON to List<Product> ---");
+//		request = target
+//				.path("search;title=x;author=pup")
+//				.request()
+//				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		try {
 			Response response = request.get();
-			list = response.readEntity(new GenericType<List<Product>>() {});
+//			list = response.readEntity(new GenericType<List<Product>>() {});
+			list = response.readEntity(ProductList.class).getProduct();
 			System.out.println(list);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 
 		System.out.println("\n---=== One product ===---");
-		System.out.println("\n---=== TEXT to String ===---");
+		
+		System.out.println("\n--- XML to String ---");
 		request = target.path("2").request()
-				.header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN);
+				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
 		body = request.get(String.class);
 		System.out.println(body);
+
+		System.out.println("\n--- XML to Product ---");
+//		request = target
+//				.path("2")
+//				.request()
+//				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_XML);
+		try {
+			product = request.get(Product.class);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println(product);
 
 		System.out.println("\n---=== JSON to String ===---");
 		request = target.path("2").request()
@@ -172,14 +166,20 @@ public class ProductsRestClient extends Application {
 		System.out.println(body);
 
 		System.out.println("\n---=== JSON to Product ===---");
-		request = target.path("2").request()
-				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
+//		request = target.path("2").request()
+//				.header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON);
 		try {
 			product = request.get(Product.class);
 			System.out.println(product);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		System.out.println("\n--- TEXT to String ---");
+		request = target.path("2").request()
+				.header(HttpHeaders.ACCEPT, MediaType.TEXT_PLAIN);
+		body = request.get(String.class);
+		System.out.println(body);
 		
 		System.out.println("\n---=== Async XML to Product ===---");
 		request = target.path("2").request()
@@ -221,7 +221,7 @@ public class ProductsRestClient extends Application {
 			// Делаем полезную работу
 			System.out.println("Do something ...");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 		
 		System.out.println("\n---=== Async longWork XML to ProductList ===---");
@@ -238,7 +238,7 @@ public class ProductsRestClient extends Application {
 			System.out.println("Status: " + resp.getStatus());
 			System.out.println("Result: " + resp.readEntity(String.class));
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 
 	}
