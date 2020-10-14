@@ -12,16 +12,17 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>LB5.JAXRSServerOnTomcat</artifactId>
+
+    <groupId>ua.nure.itech.jax-rs</groupId>
+    <artifactId>lb5-jaxrsserverontomcat</artifactId>
+    <name>Books REST Web-Service</name>
+    <description>
+        REST Web service example implemented as Java Web application.
+        This project provides REST API only.
+    </description>
     <packaging>war</packaging>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-        <!-- Java version -->
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
         <jackson.core.version>2.11.2</jackson.core.version>
         <log4j.version>1.2.17</log4j.version>
         <jersey.version>2.32</jersey.version>
@@ -29,8 +30,6 @@
         <!-- defines war name and context path -->
         <appName>shop</appName>
     </properties>
-
-    <name>Books REST Web-Service</name>
 
     <dependencies>
         <dependency>

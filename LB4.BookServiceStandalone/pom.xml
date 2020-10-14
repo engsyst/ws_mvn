@@ -10,12 +10,16 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <version>1.0-SNAPSHOT</version>
+
+    <groupId>ua.nure.itech.jax-ws</groupId>
+    <artifactId>lb4-bookservicestandalone</artifactId>
+    <name>JaxWS Book Service Demo</name>
+    <description>
+        Main example of fully implemented JAX-WS Web Service.
+        Implemented as console application.
+    </description>
     <packaging>jar</packaging>
 
-    <artifactId>LB4.BookServiceStandalone</artifactId>
-    <name>JaxWS Book Service Demo</name>
-    
     <properties>
         <!-- versions -->
         <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>

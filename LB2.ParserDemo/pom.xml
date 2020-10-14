@@ -10,30 +10,36 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <groupId>ua.nure.itech.parser</groupId>
+    <artifactId>lb2-parserdemo</artifactId>
+    <name>XML Parsers Demo</name>
     <packaging>jar</packaging>
 
-    <artifactId>LB2.ParserDemo</artifactId>
-    <name>XML Parsers Demo</name>
+    <properties>
+        <msv.version>2013.6.1</msv.version>
+        <woodstox.version>6.2.1</woodstox.version>
+    </properties>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.fasterxml.woodstox/woodstox-core -->
         <dependency>
             <groupId>com.fasterxml.woodstox</groupId>
             <artifactId>woodstox-core</artifactId>
-            <version>6.2.1</version>
+            <version>${woodstox.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.java.dev.msv/msv -->
         <dependency>
             <groupId>net.java.dev.msv</groupId>
             <artifactId>msv</artifactId>
-            <version>2013.6.1</version>
+            <version>${msv.version}</version>
             <type>pom</type>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.java.dev.msv/xsdlib -->
         <dependency>
             <groupId>net.java.dev.msv</groupId>
             <artifactId>xsdlib</artifactId>
-            <version>2013.6.1</version>
+            <version>${msv.version}</version>
         </dependency>
 
     </dependencies>

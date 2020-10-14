@@ -10,11 +10,12 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+	<groupId>ua.nure.itech.jax-ws.client</groupId>
+    <artifactId>lb3-1-jaxwsclient</artifactId>
+    <name>JaxWS Client Demo</name>
     <packaging>jar</packaging>
 
-    <artifactId>LB3.1JAXWSClient</artifactId>
-    <name>JaxWS Client Demo</name>
-    
     <properties>
         <!-- versions -->
         <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>
@@ -30,28 +31,8 @@
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- <plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>1.9</version>
-					<executions>
-						<execution>
-							<id>add-source</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>add-source</goal>
-							</goals>
-							<configuration>
-								<sources>
-									<source>${project.basedir}/target/generated/src/main/java</source>
-								</sources>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin> -->
-
 				<!-- to generate client artefact run maven goal: -->
-				<!-- mvn jaxws:wsimport -->
+				<!-- mvn clean jaxws:wsimport -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>jaxws-maven-plugin</artifactId>

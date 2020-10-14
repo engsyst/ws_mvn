@@ -10,12 +10,12 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <version>1.0-SNAPSHOT</version>
+
+    <groupId>ua.nure.itech.jax-ws</groupId>
+    <artifactId>lb3-3-jaxwsclientwithsei</artifactId>
+    <name>JaxWS Service Demo</name>
     <packaging>jar</packaging>
 
-    <artifactId>LB3.3.JAXWSClientWithSEI</artifactId>
-    <name>JaxWS Service Demo</name>
-    
     <properties>
         <!-- versions -->
         <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>

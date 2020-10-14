@@ -5,20 +5,25 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-     <parent>
-         <groupId>ua.nure.itech</groupId>
-         <artifactId>itech</artifactId>
-         <version>1.0-SNAPSHOT</version>
-         <relativePath>../pom.xml</relativePath>
-     </parent>
-    <artifactId>LB4.BookServiceWebClientOnTomcat</artifactId>
+    <parent>
+        <groupId>ua.nure.itech</groupId>
+        <artifactId>itech</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>ua.nure.itech.jax-ws</groupId>
+    <artifactId>lb4-bookservicewebclientontomcat</artifactId>
+    <name>Books Web-Service web client</name>
+    <description>
+        Web client to "JaxWS Book Service Demo". It is the Java Web application.
+        Example how to develop Web applications in Java using Servlets and JSP.
+    </description>
     <packaging>war</packaging>
 
     <properties>
         <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>
     </properties>
-
-    <name>Books Web-Service web client</name>
 
     <dependencies>
         <dependency>

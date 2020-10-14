@@ -10,13 +10,15 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <version>1.0-SNAPSHOT</version>
+
+    <groupId>ua.nure.itech.jax-ws</groupId>
+    <artifactId>lb3-4-jaxwsclientwithhandler</artifactId>
+    <name>JaxWS Client Demo</name>
+    <description>
+        How to use handlers in the jaxws client
+    </description>
     <packaging>jar</packaging>
 
-    <artifactId>LB3.4.JAXWSClientWithHandler</artifactId>
-    <name>JaxWS Client Demo</name>
-    <description>How to use handlers in the jaxws client</description>
-    
     <properties>
         <!-- versions -->
         <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>

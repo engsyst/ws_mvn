@@ -10,16 +10,15 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
-    <artifactId>LB3.4.JAXWSClientWithJar</artifactId>
-
+    <groupId>ua.nure.itech.jax-ws</groupId>
+    <artifactId>lb3-4-jaxwsclientwithjar</artifactId>
     <name>JaxWS Client Demo</name>
     <description>
         How to pack client artifact into .jar file.
     </description>
-    
+    <packaging>jar</packaging>
+
     <properties>
         <!-- versions -->
         <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>

@@ -5,30 +5,23 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-     <parent>
-         <groupId>ua.nure.itech</groupId>
-         <artifactId>itech</artifactId>
-         <version>1.0-SNAPSHOT</version>
-         <relativePath>../pom.xml</relativePath>
-     </parent>
-    <artifactId>LB3.1.JAXWSServerMetroOnTomcat</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>ua.nure.itech</groupId>
+        <artifactId>itech</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <groupId>ua.nure.itech.jax-ws.metro</groupId>
+    <artifactId>lb3-1-jaxwsservermetroontomcat</artifactId>
+    <name>JAX-WS RI Example on Tomcat</name>
     <packaging>war</packaging>
 
     <properties>
         <com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>
     </properties>
 
-    <name>JAXWS-RI Example on Tomcat</name>
-
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -40,29 +33,18 @@
             <artifactId>jaxws-rt</artifactId>
             <version>${com.sun.xml.ws.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/jstl/jstl -->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <!--<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
-        </dependency>-->
-
     </dependencies>
-
 
     <build>
         <finalName>Metroemo</finalName>

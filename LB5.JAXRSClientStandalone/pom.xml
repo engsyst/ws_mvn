@@ -10,13 +10,16 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <groupId>ua.nure.itech.jax-rs</groupId>
+    <artifactId>lb5-jaxrsclientstandalone</artifactId>
+    <name>JaxRS Client Demo</name>
+    <description>
+        JAX-RS client console application.
+    </description>
     <packaging>jar</packaging>
 
-    <artifactId>LB5.JAXRSClientStandalone</artifactId>
-    <name>JaxRS Client Demo</name>
-    
     <properties>
-        <!-- versions -->
         <!--<com.sun.xml.ws.version>2.3.2</com.sun.xml.ws.version>-->
         <jersey.version>2.32</jersey.version>
         <jackson.core.version>2.11.2</jackson.core.version>
