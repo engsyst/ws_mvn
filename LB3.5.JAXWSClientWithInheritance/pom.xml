@@ -10,7 +10,6 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <artifactId>LB3.5.JAXWSClientWithInheritance</artifactId>
@@ -37,31 +36,12 @@
             <version>${com.sun.xml.ws.version}</version>
         </dependency>
     </dependencies>
+    
 	<build>
 		<pluginManagement>
 			<plugins>
-				<!-- <plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>1.9</version>
-					<executions>
-						<execution>
-							<id>add-source</id>
-							<phase>generate-sources</phase>
-							<goals>
-								<goal>add-source</goal>
-							</goals>
-							<configuration>
-								<sources>
-									<source>${project.basedir}/target/generated/src/main/java</source>
-								</sources>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin> -->
-
-				<!-- to generate client artefact run maven goal: -->
-				<!-- mvn jaxws:wsimport -->
+				<!-- to generate client artifact run maven goal: -->
+				<!-- mvn clean jaxws:wsimport -->
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>jaxws-maven-plugin</artifactId>
@@ -71,7 +51,7 @@
 							<wsdlUrl>http://localhost:9090/hello?wsdl</wsdlUrl>
 						</wsdlUrls>
 						<bindingFiles>
-							<bindingFile>${project.basedir}/bindings.xml</bindingFile>
+							<bindingFile>bindings.xml</bindingFile>
 						</bindingFiles>
 						<keep>true</keep>
 						<sourceDestDir>${project.build.sourceDirectory}</sourceDestDir>
