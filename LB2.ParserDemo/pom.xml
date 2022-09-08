@@ -83,14 +83,14 @@
 				<executions>
 					<execution>
 						<id>xjc</id>
-						<!-- <phase>generate-sources</phase> -->
+						<phase>generate-sources</phase>
 						<goals>
 							<goal>xjc</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<outputDirectory>src/main/java</outputDirectory>
+					<outputDirectory>${project.build.sourceDirectory}</outputDirectory>
 					<clearOutputDir>false</clearOutputDir>
 					<!-- <outputDirectory>${basedir}/gen src/main/java</outputDirectory> -->
 					<sources>
