@@ -115,19 +115,25 @@ public class DOMParser {
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		dbf.setNamespaceAware(true);
+		
+		// to be compliant, completely disable DOCTYPE declaration:
+		dbf.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+		// or completely disable external entities declarations:
+//		dbf.setFeature("http://xml.org/sax/features/external-general-entities", false);
+//		dbf.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
 
-		// Parser should not parse documents with DTD
-		dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
-//		dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, ""); 		// compliant
-
-		// make parser validating
-		dbf.setFeature(Const.FEATURE__TURN_VALIDATION_ON, true);
-		dbf.setFeature(Const.FEATURE__TURN_SCHEMA_VALIDATION_ON, true);
+		// make parser validating against XSD, which internally referenced in XML doc
+		// !!! OLD VULNERABLE FEATURE !!!
+//		dbf.setFeature(Const.FEATURE__TURN_VALIDATION_ON, true);
+//		dbf.setFeature(Const.FEATURE__TURN_SCHEMA_VALIDATION_ON, true);
+		
 		// set the validation against schema
 		dbf.setSchema(schema);
 		
 		DocumentBuilder db = dbf.newDocumentBuilder();
 
+		// setup validation error handler
+		// the preferred way is the throwing an exception
 		db.setErrorHandler(new DefaultHandler() {
 			@Override
 			public void error(SAXParseException e) throws SAXException {
@@ -136,10 +142,12 @@ public class DOMParser {
 			}
 		});
 
+		// get the top of the xml tree
 		Document root = db.parse(in);
 
 		List<Order> orders = new ArrayList<>();
 
+		// get the root element of the xml document
 		Element e = root.getDocumentElement();
 		NodeList xmlOrders = e.getElementsByTagNameNS(Const.ORDERS_NAMESPACE_URI, Const.TAG_ORDER);
 		for (int i = 0; i < xmlOrders.getLength(); i++) {

@@ -9,8 +9,13 @@ import ua.nure.order.entity.book.Category;
 import ua.nure.order.entity.order.Order;
 import ua.nure.order.entity.order.OrderItem;
 
+import javax.xml.XMLConstants;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -41,17 +46,38 @@ public class SAXParser extends DefaultHandler {
 
 	@Override
 	public void error(org.xml.sax.SAXParseException e) throws SAXException {
-		throw e; // throw exception if xml not valid
+//		throw e; // throw exception if xml not valid
+		System.err.println(e.getMessage());
 	}
 
-	public List<Order> parse(InputStream in) throws ParserConfigurationException, SAXException, IOException {
+	public List<Order> parse(InputStream in, Schema schema) throws ParserConfigurationException, SAXException, IOException {
+
+		/**
+		 * SAXParserFactory factory = SAXParserFactory.newInstance(); 
+		 * 
+		 * // to be compliant, completely disable DOCTYPE declaration:
+		 * factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true); 
+		 * 
+		 * // or completely disable external entities declarations:
+		 * factory.setFeature("http://xml.org/sax/features/external-general-entities", false);
+		 * factory.setFeature("http://xml.org/sax/features/external-parameter-entities", false); 
+		 * 
+		 * // or prohibit the use of all protocols by external entities:
+		 * SAXParser parser = factory.newSAXParser(); // Noncompliant
+		 * parser.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+		 * parser.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+		 * 
+		 */
+		// XML parsers should not be vulnerable to XXE attacks 
+		// Fix by yourself
 		SAXParserFactory factory = SAXParserFactory.newInstance();
-
 		factory.setNamespaceAware(true);
-		// make parser validating
-		factory.setFeature(Const.FEATURE__TURN_VALIDATION_ON, true);
-		factory.setFeature(Const.FEATURE__TURN_SCHEMA_VALIDATION_ON, true);
 
+		// make parser validating
+//		factory.setFeature(Const.FEATURE__TURN_VALIDATION_ON, true);
+//		factory.setFeature(Const.FEATURE__TURN_SCHEMA_VALIDATION_ON, true);
+
+		factory.setSchema(schema);
 		javax.xml.parsers.SAXParser parser = factory.newSAXParser();
 		parser.parse(in, this);
 
@@ -88,24 +114,28 @@ public class SAXParser extends DefaultHandler {
 
 	@Override
 	public void characters(char[] ch, int start, int length) {
+		String value = new String(ch, start, length);
+		if (value.isBlank()) {
+			return;
+		}
 		if (Const.TAG_COUNT.equals(current)) {
 			if (Const.TAG_ORDERITEM.equals(countParent)) {
-				item.setCount(Integer.parseInt(new String(ch, start, length)));
+				item.setCount(Integer.parseInt(value));
 			}
 			if (Const.TAG_BOOK.equals(countParent)) {
-				book.setCount(Integer.parseInt(new String(ch, start, length)));
+				book.setCount(Integer.parseInt(value));
 			}
 		} else if (Const.TAG_TITLE.equals(current)) {
 			if (Const.TAG_BOOK.equals(titleParent)) {
 				book.setTitle(new String(ch, start, length));
 			}
 			if (Const.TAG_AUTHOR.equals(titleParent)) {
-				author.setTitle(new String(ch, start, length));
+				author.setTitle(value);
 			}
 		} else if (Const.TAG_CATEGORY.equals(current)) {
-			book.setCategory(Category.fromValue(new String(ch, start, length)));
+			book.setCategory(Category.fromValue(value));
 		} else if (Const.TAG_PRICE.equals(current)) {
-			book.setPrice(Double.parseDouble(new String(ch, start, length)));
+			book.setPrice(Double.parseDouble(value));
 		}
 	}
 
@@ -125,14 +155,22 @@ public class SAXParser extends DefaultHandler {
 		}
 	}
 
-	public static void main(String[] args)
-			throws ParserConfigurationException, SAXException, IOException {
+	public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+		// Create against validation schema
+		SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+		Schema schema = sf.newSchema(new File(Const.XSD_FILE));
+
 		System.out.println("--== SAX Parser ==--");
 		SAXParser parser = new SAXParser();
-		parser.parse(new FileInputStream("orders.xml"));
+		parser.parse(new FileInputStream("orders.xml"), schema);
 		List<Order> orders = parser.getOrders();
 		System.out.println("====================================");
 		System.out.println("Here is the orders: \n" + orders);
+		System.out.println("====================================");
+		parser.parse(new FileInputStream(Const.INVALID_XML_FILE), schema);
+		orders = parser.getOrders();
+		System.out.println("====================================");
+		System.out.println("Here is the invalid orders: \n" + orders);
 		System.out.println("====================================");
 	}
 }
