@@ -71,6 +71,34 @@
             <artifactId>xsdlib</artifactId>
             <version>${msv.version}</version>
         </dependency>
-
     </dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-xjc-plugin</artifactId>
+				<version>3.3.0</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<!-- Output to ${project.build.directory}/generated/src/main/java -->
+							<!-- run maven goal: compile -->
+							<goal>xsdtojava</goal>
+						</goals>
+						<configuration>
+							<xsdOptions>
+								<xsdOption>
+									<xsd>${basedir}/orders.xsd</xsd>
+									<!-- <packagename>your.package</packagename> -->
+								</xsdOption>
+							</xsdOptions>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
