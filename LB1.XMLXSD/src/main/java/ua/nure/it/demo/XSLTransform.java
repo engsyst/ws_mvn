@@ -23,6 +23,9 @@ public class XSLTransform {
 		TransformerFactory factory = TransformerFactory.newInstance();
 		Transformer t = factory.newTransformer(new StreamSource(new File(xsl)));
 		t.transform(new StreamSource(new File(xml)), new StreamResult(new File(htm)));
+		System.out.println("Input xml: " + xml);
+		System.out.println("Input xsl: " + xsl);
+		System.out.println("Output   : " + htm);
 	}
 
 	private static void usage() {

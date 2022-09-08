@@ -4,17 +4,58 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
+<!-- 	<parent>
 		<groupId>ua.nure.itech</groupId>
 		<artifactId>itech</artifactId>
 		<version>1.0-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
-	</parent>
+	</parent> -->
 
 	<groupId>ua.nure.itech.xml</groupId>
 	<artifactId>lb1-xmlxsd</artifactId>
 	<name>XML Schema Demo</name>
+    <version>1.1</version>
 	<packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Java version -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <!-- versions -->
+        <jaxb.version>2.3.1</jaxb.version>
+        <jaxb-core.version>2.3.0.1</jaxb-core.version>
+        <jaxws-api.version>2.3.1</jaxws-api.version>
+        <activation.version>1.1.1</activation.version>
+    </properties>
+
+    <dependencies>
+        <!-- Required for Java 13 to manage MIME data -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>${activation.version}</version>
+        </dependency>
+
+        <!-- JAXB -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>${jaxb.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>${jaxb-core.version}</version>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
