@@ -33,7 +33,7 @@ public interface Hello {
     @WebMethod(action = "urn:Hello")
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "hello", targetNamespace = "http://service.jaxws.itech.nure.ua/", className = "ua.nure.itech.jaxws.service.Hello_Type")
-    @ResponseWrapper(localName = "hellodResponse", targetNamespace = "http://service.jaxws.itech.nure.ua/", className = "ua.nure.itech.jaxws.service.HellodResponse")
+    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://service.jaxws.itech.nure.ua/", className = "ua.nure.itech.jaxws.service.HelloResponse")
     @Action(input = "urn:Hello", output = "http://service.jaxws.itech.nure.ua/Hello/helloResponse")
     public String hello(
         @WebParam(name = "userName", targetNamespace = "")

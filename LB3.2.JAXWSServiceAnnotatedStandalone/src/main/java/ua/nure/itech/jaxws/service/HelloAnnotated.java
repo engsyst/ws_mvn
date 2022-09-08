@@ -19,7 +19,7 @@ import jakarta.xml.ws.ResponseWrapper;
 public class HelloAnnotated {
 	@WebMethod(operationName = "hello", action = "urn:Hello")
 	@RequestWrapper(className = "ua.nure.itech.jaxws.service.jaxws.Hello", localName = "hello", targetNamespace = "http://service.jaxws.itech.nure.ua/")
-	@ResponseWrapper(className = "ua.nure.itech.jaxws.service.jaxws.HelloResponse", localName = "hellodResponse", targetNamespace = "http://service.jaxws.itech.nure.ua/")
+	@ResponseWrapper(className = "ua.nure.itech.jaxws.service.jaxws.HelloResponse", localName = "helloResponse", targetNamespace = "http://service.jaxws.itech.nure.ua/")
 	@WebResult(name = "return")
 	public String hello(@WebParam(name = "userName") String name) {
 		return "HelloAnnotated " + name + "!";

@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 public class ObjectFactory {
 
     private final static QName _Hello_QNAME = new QName("http://service.jaxws.itech.nure.ua/", "hello");
-    private final static QName _HellodResponse_QNAME = new QName("http://service.jaxws.itech.nure.ua/", "hellodResponse");
+    private final static QName _HelloResponse_QNAME = new QName("http://service.jaxws.itech.nure.ua/", "helloResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ua.nure.itech.jaxws.service
@@ -43,11 +43,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HellodResponse }
+     * Create an instance of {@link HelloResponse }
      * 
      */
-    public HellodResponse createHellodResponse() {
-        return new HellodResponse();
+    public HelloResponse createHelloResponse() {
+        return new HelloResponse();
     }
 
     /**
@@ -64,16 +64,16 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HellodResponse }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}
      * 
      * @param value
      *     Java instance representing xml element's value.
      * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link HellodResponse }{@code >}
+     *     the new instance of {@link JAXBElement }{@code <}{@link HelloResponse }{@code >}
      */
-    @XmlElementDecl(namespace = "http://service.jaxws.itech.nure.ua/", name = "hellodResponse")
-    public JAXBElement<HellodResponse> createHellodResponse(HellodResponse value) {
-        return new JAXBElement<HellodResponse>(_HellodResponse_QNAME, HellodResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://service.jaxws.itech.nure.ua/", name = "helloResponse")
+    public JAXBElement<HelloResponse> createHelloResponse(HelloResponse value) {
+        return new JAXBElement<HelloResponse>(_HelloResponse_QNAME, HelloResponse.class, null, value);
     }
 
 }
