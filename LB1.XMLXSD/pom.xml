@@ -59,7 +59,7 @@
 				<executions>
 					<execution>
 						<id>xjc</id>
-						<phase>generate-sources</phase>
+						<!-- <phase>generate-sources</phase> -->
 						<goals>
 							<!-- Output to ${project.build.directory}/generated/src/main/java -->
 							<goal>xsdtojava</goal>

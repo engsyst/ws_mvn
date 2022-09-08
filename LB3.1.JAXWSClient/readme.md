@@ -1,6 +1,6 @@
 # Web service client project
 
-Works with LB3.1-4JAXWSServerStandalone project  
+Works with LB3.1.JAXWSServerStandalone project  
 Set up as implementor:
 > final static Object implHello = new ua.nure.itech.jaxws.service.Hello();
 
@@ -15,7 +15,7 @@ Create "Run Configuration"
 - In the search box type: *maven*
 - Double click on *Maven*
 - Select your client project in the *Base directory*
-- In the Goal field type: *jaxws:wsimport*
+- In the Goal field type: *clean jaxws:wsimport*
 - Press: *Run*  
 **Note**: Clean the target directory before generating the artifact.
 
@@ -23,4 +23,4 @@ Create "Run Configuration"
 
 In the *Maven* view:
 - Select: *Run maven goal*
-- Type: *mvn jaxws:wsimport*
+- Type: *mvn clean jaxws:wsimport*

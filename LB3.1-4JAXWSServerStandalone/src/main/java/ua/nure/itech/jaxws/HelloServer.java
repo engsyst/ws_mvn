@@ -1,19 +1,13 @@
 package ua.nure.itech.jaxws;
 
-import java.util.Scanner;
+import jakarta.xml.ws.Endpoint;
 
-import javax.xml.ws.Endpoint;
+import java.util.Scanner;
 
 public class HelloServer{
  	final static String address = "http://localhost:9090/hello";
  	// ( 1 ) 
 	final static Object implHello = new ua.nure.itech.jaxws.service.Hello();
-	// ( 2 ) 
-	final static Object implHelloAnnotated = new ua.nure.itech.jaxws.service.Hello();
-	// ( 3 ) 
-	final static Object implHelloWithSEI = new ua.nure.itech.jaxws.service.inheritance.HelloImpl();
-	// ( 4 ) 
-	final static Object implHelloWithHandler = new ua.nure.itech.jaxws.service.handled.HelloHandled();
 
     public static void main(String args[]) {
 		// uncomment two lines below if you want log messages to the System.out on the server side
