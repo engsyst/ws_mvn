@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 	<groupId>ua.nure.itech.jax-ws.client</groupId>
-    <artifactId>lb3-1-jaxwsclient</artifactId>
+    <artifactId>lb3-1-jaxws-client-simple</artifactId>
 	<version>1.1</version>
     <name>JaxWS Client Demo</name>
     <packaging>jar</packaging>
