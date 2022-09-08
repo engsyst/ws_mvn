@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<orders xmlns="http://order.nure.ua/entity/order/" xmlns:ns2="http://order.nure.ua/entity/book/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://order.nure.ua/entity/order/ orders.xsd">
+    <order>
+        <orderItem id="0">
+            <count>1</count>
+            <book id="1">
+                <ns2:title>title</ns2:title>
+                <ns2:author id="1">
+                    <ns2:title>author 1</ns2:title>
+                </ns2:author>
+                <ns2:author id="2">
+                    <ns2:title>author 2</ns2:title>
+                </ns2:author>
+                <ns2:price>10.0</ns2:price>
+                <ns2:category>Fantasy</ns2:category>
+                <ns2:count>0</ns2:count>
+            </book>
+        </orderItem>
+        <orderItem id="0">
+            <count>3</count>
+            <book id="0">
+                <ns2:title>title 1</ns2:title>
+                <ns2:author>
+                    <ns2:title>author</ns2:title>
+                </ns2:author>
+                <ns2:price>0.5</ns2:price>
+                <ns2:category>Action</ns2:category>
+                <ns2:count>0</ns2:count>
+            </book>
+        </orderItem>
+    </order>
+    <order>
+        <orderItem id="0">
+            <count>1</count>
+            <book id="1">
+                <ns2:title>title 2</ns2:title>
+                <ns2:author id="3">
+                    <ns2:title>author 3</ns2:title>
+                </ns2:author>
+                <ns2:price>7.0</ns2:price>
+                <ns2:category>Love novel</ns2:category>
+                <ns2:count>0</ns2:count>
+            </book>
+        </orderItem>
+        <orderItem id="0">
+            <count>2</count>
+            <book id="0">
+                <ns2:title>title 3</ns2:title>
+                <ns2:author id="2">
+                    <ns2:title>author 2</ns2:title>
+                </ns2:author>
+                <ns2:price>3.5</ns2:price>
+                <ns2:category>Love novel</ns2:category>
+                <ns2:count>0</ns2:count>
+            </book>
+        </orderItem>
+    </order>
+</orders>
