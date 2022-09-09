@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains
+	xmlns="https://jakarta.ee/xml/ns/jakartaee">
+	<!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
+	jakartaee_web_services_metadata_handler_3_0.xsd"> -->
+	<handler-chain>
+		<handler>
+			<handler-name>HelloHandler</handler-name>
+			<handler-class>ua.nure.itech.jaxws.handler.HelloHandler</handler-class>
+		</handler>
+	</handler-chain>
+	<handler-chain>
+		<handler>
+			<handler-name>SecurityHandler</handler-name>
+			<handler-class>ua.nure.itech.jaxws.handler.SecurityHandler</handler-class>
+		</handler>
+	</handler-chain>
+</handler-chains>
