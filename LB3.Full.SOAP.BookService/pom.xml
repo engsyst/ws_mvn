@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.nure.itech.jax-ws</groupId>
-    <artifactId>lb3-book-service</artifactId>
+    <artifactId>lb3-soap-book-service</artifactId>
     <version>1.1</version>
     <name>JaxWS Book Service Demo</name>
     <description>
