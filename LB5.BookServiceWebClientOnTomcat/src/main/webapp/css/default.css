@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+tr:HOVER {
+	background-color: #eeffff;
+}
+
+.brd {
+	border: thin solid black;
+	padding: 5px;
+	border-collapse: collapse;
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.tabhead {
+	text-align: center;
+	font-weight: bold;
+	border-bottom: medium solid black;
+}

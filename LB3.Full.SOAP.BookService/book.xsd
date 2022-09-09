@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://order.nure.ua/entity" 
+  	xmlns:tns="http://order.nure.ua/entity"
+	elementFormDefault="qualified">
+	
+	<xsd:include schemaLocation="entity.xsd" />
+	<!-- 
+		<book id = ""> 
+			<title></title> 
+			<author></author> 
+			<ISBN></ISBN> 
+			<price></price>	
+			<category></category> 
+		</book> 
+	-->
+	<xsd:simpleType name="Price">
+		<xsd:restriction base="xsd:double">
+			<xsd:minInclusive value="0" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Category">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Fantasy" />
+			<xsd:enumeration value="Action" />
+			<xsd:enumeration value="Love novel" />
+			<xsd:enumeration value="none" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="Book">
+		<xsd:complexContent>
+			<xsd:extension base="tns:Entity">
+				<xsd:sequence>
+					<xsd:element name="title" type="xsd:string" minOccurs="1" maxOccurs="1" />
+					<xsd:element name="author" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+					<xsd:element name="isbn" minOccurs="0" maxOccurs="1" >
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:pattern value="ISBN-[0-9]{5,5}-[0-9]{4,4}" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="price" type="tns:Price" minOccurs="1" maxOccurs="1" />
+					<xsd:element name="category" type="tns:Category" default="none" />
+					<xsd:element name="count" default="0" minOccurs="1" maxOccurs="1" >
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:int">
+								<xsd:minInclusive value="0" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+ </xsd:schema>

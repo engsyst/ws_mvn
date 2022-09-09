@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://order.nure.ua/entity" 
+  	xmlns:tns="http://order.nure.ua/entity"
+	elementFormDefault="qualified">
+	
+	<xsd:complexType name="Entity">
+		<xsd:attribute name="id" type="xsd:int" use="optional"/>
+	</xsd:complexType>
+ </xsd:schema>

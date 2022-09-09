@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --><xs:schema xmlns:tns="http://order.nure.ua/entity" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="1.0" targetNamespace="http://order.nure.ua/entity">
+
+<xs:element name="book" type="tns:Book"></xs:element>
+
+<xs:element name="return" type="tns:Book"></xs:element>
+
+<xs:complexType name="Book">
+<xs:complexContent>
+<xs:extension base="tns:Entity">
+<xs:sequence>
+<xs:element name="title" type="xs:string"></xs:element>
+<xs:element name="author" type="xs:string" maxOccurs="unbounded"></xs:element>
+<xs:element name="isbn" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="price" type="xs:double"></xs:element>
+<xs:element name="category" type="xs:string" default="none"></xs:element>
+<xs:element name="count" type="xs:int" default="0"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+
+<xs:complexType name="Entity">
+<xs:sequence></xs:sequence>
+<xs:attribute name="id" type="xs:int"></xs:attribute>
+</xs:complexType>
+
+<xs:simpleType name="Category">
+<xs:restriction base="xs:string">
+<xs:enumeration value="Fantasy"></xs:enumeration>
+<xs:enumeration value="Action"></xs:enumeration>
+<xs:enumeration value="Love novel"></xs:enumeration>
+<xs:enumeration value="none"></xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
