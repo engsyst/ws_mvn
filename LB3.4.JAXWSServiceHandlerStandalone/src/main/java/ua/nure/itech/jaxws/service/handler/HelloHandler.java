@@ -1,8 +1,11 @@
-package ua.nure.itech.jaxws.handler;
+package ua.nure.itech.jaxws.service.handler;
 
 import java.util.Set;
 
 import javax.xml.namespace.QName;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jakarta.xml.soap.SOAPBody;
 import jakarta.xml.soap.SOAPException;
@@ -14,6 +17,7 @@ import jakarta.xml.ws.handler.soap.SOAPMessageContext;
 import jakarta.xml.ws.soap.SOAPFaultException;
 
 public class HelloHandler implements SOAPHandler<SOAPMessageContext> {
+	private final Logger log = LoggerFactory.getLogger(HelloHandler.class);
 
 	@Override
 	public boolean handleMessage(SOAPMessageContext context) {
@@ -27,37 +31,37 @@ public class HelloHandler implements SOAPHandler<SOAPMessageContext> {
 				result = handleInboundMessge(msg);
 			}
 		} catch (SOAPException e) {
-			// TODO log
+			log.error("", e);
 			result = generateSOAPErrMessage(msg, "Your reason");
 		}
 		return result;
 	}
 
 	private boolean handleInboundMessge(SOAPMessage msg) throws SOAPException {
-		System.out.println("HelloHandler: Inbound message");
+		log.info("HelloHandler: Inbound message");
 		return true;
 	}
 
 	private boolean handleOutboundMessge(SOAPMessage msg) throws SOAPException {
-		System.out.println("HelloHandler: Outbound message");
+		log.info("HelloHandler: Outbound message");
 		return true;
 	}
 
 	@Override
 	public boolean handleFault(SOAPMessageContext context) {
-		System.out.println("HelloHandler: handleFault()");
+		log.info("HelloHandler: handleFault()");
 		return true;
 	}
 
 	@Override
 	public void close(MessageContext context) {
-		System.out.println("HelloHandler: close()");
+		log.info("HelloHandler: close()");
 	}
 
 	@Override
 	public Set<QName> getHeaders() {
-		System.out.println("HelloHandler: getHeaders()");
-		return null;
+		log.info("getHeaders()");
+		return Set.of();
 	}
 
 	

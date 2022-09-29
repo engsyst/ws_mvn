@@ -2,7 +2,6 @@
 package ua.nure.itech.jaxws.service.handled;
 
 import javax.xml.namespace.QName;
-
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
@@ -25,9 +24,10 @@ import jakarta.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _HelloUserResponse_QNAME = new QName("http://handled.service.jaxws.itech.nure.ua/", "helloUserResponse");
-    private final static QName _HelloUser_QNAME = new QName("http://handled.service.jaxws.itech.nure.ua/", "helloUser");
+    private final static QName _ValidationException_QNAME = new QName("http://handled.service.jaxws.itech.nure.ua/", "ValidationException");
     private final static QName _ClientToken_QNAME = new QName("http://handled.service.jaxws.itech.nure.ua/", "clientToken");
+    private final static QName _HelloUser_QNAME = new QName("http://handled.service.jaxws.itech.nure.ua/", "helloUser");
+    private final static QName _HelloUserResponse_QNAME = new QName("http://handled.service.jaxws.itech.nure.ua/", "helloUserResponse");
     private final static QName _ServerToken_QNAME = new QName("http://handled.service.jaxws.itech.nure.ua/", "serverToken");
 
     /**
@@ -38,11 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link HelloUserResponse }
+     * Create an instance of {@link ValidationException }
      * 
      */
-    public HelloUserResponse createHelloUserResponse() {
-        return new HelloUserResponse();
+    public ValidationException createValidationException() {
+        return new ValidationException();
     }
 
     /**
@@ -62,17 +62,41 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HelloUserResponse }{@code >}}
+     * Create an instance of {@link HelloUserResponse }
      * 
      */
-    @XmlElementDecl(namespace = "http://handled.service.jaxws.itech.nure.ua/", name = "helloUserResponse")
-    public JAXBElement<HelloUserResponse> createHelloUserResponse(HelloUserResponse value) {
-        return new JAXBElement<HelloUserResponse>(_HelloUserResponse_QNAME, HelloUserResponse.class, null, value);
+    public HelloUserResponse createHelloUserResponse() {
+        return new HelloUserResponse();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SecurityHeader }{@code >}}
+     * Create an instance of {@link User }
      * 
+     */
+    public User createUser() {
+        return new User();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidationException }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link ValidationException }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://handled.service.jaxws.itech.nure.ua/", name = "ValidationException")
+    public JAXBElement<ValidationException> createValidationException(ValidationException value) {
+        return new JAXBElement<ValidationException>(_ValidationException_QNAME, ValidationException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SecurityHeader }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SecurityHeader }{@code >}
      */
     @XmlElementDecl(namespace = "http://handled.service.jaxws.itech.nure.ua/", name = "clientToken")
     public JAXBElement<SecurityHeader> createClientToken(SecurityHeader value) {
@@ -80,8 +104,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link HelloUser }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link HelloUser }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link HelloUser }{@code >}
      */
     @XmlElementDecl(namespace = "http://handled.service.jaxws.itech.nure.ua/", name = "helloUser")
     public JAXBElement<HelloUser> createHelloUser(HelloUser value) {
@@ -89,8 +117,25 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SecurityHeader }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link HelloUserResponse }{@code >}
      * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link HelloUserResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://handled.service.jaxws.itech.nure.ua/", name = "helloUserResponse")
+    public JAXBElement<HelloUserResponse> createHelloUserResponse(HelloUserResponse value) {
+        return new JAXBElement<HelloUserResponse>(_HelloUserResponse_QNAME, HelloUserResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link SecurityHeader }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link SecurityHeader }{@code >}
      */
     @XmlElementDecl(namespace = "http://handled.service.jaxws.itech.nure.ua/", name = "serverToken")
     public JAXBElement<SecurityHeader> createServerToken(SecurityHeader value) {

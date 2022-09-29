@@ -7,13 +7,13 @@
 	<handler-chain>
 		<handler>
 			<handler-name>HelloHandler</handler-name>
-			<handler-class>ua.nure.itech.jaxws.handler.HelloHandler</handler-class>
+			<handler-class>ua.nure.itech.jaxws.service.handler.HelloHandler</handler-class>
 		</handler>
 	</handler-chain>
 	<handler-chain>
 		<handler>
 			<handler-name>SecurityHandler</handler-name>
-			<handler-class>ua.nure.itech.jaxws.handler.SecurityHandler</handler-class>
+			<handler-class>ua.nure.itech.jaxws.service.handler.SecurityHandler</handler-class>
 		</handler>
 	</handler-chain>
 </handler-chains>
