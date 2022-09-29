@@ -1,7 +1,7 @@
 package ua.nure.itech.jaxws.service;
 
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
+import jakarta.jws.WebService;
+import jakarta.jws.soap.SOAPBinding;
 
 //import javax.ws.rs.GET;
 //import javax.ws.rs.Path;

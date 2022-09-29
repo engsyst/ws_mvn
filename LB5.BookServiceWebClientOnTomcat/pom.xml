@@ -87,18 +87,11 @@
 			<version>1.2.11</version>
 		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <!--<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.6</version>
-        </dependency>-->
-
     </dependencies>
 
 
     <build>
-        <finalName>Metroemo</finalName>
+        <finalName>books</finalName>
         <pluginManagement>
             <!-- lock down plugins versions to avoid using Maven
                  defaults (may be moved to parent pom) -->
