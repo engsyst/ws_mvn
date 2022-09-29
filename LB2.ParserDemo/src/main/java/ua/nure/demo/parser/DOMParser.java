@@ -40,6 +40,13 @@ public class DOMParser {
 
 	private Order parseOrder(Node node) {
 		Order order = new Order();
+		// -----
+//		Element el = (Element) node;
+//		NodeList elementsByTagNameNS = el.getElementsByTagNameNS(Const.ORDERS_NAMESPACE_URI, Const.TAG_ORDERITEM);
+//		for (int i = 0; i < elementsByTagNameNS.getLength(); i++) {
+//			order.getOrderItem().add(parseOrderItem(elementsByTagNameNS.item(i)));
+//		}
+		// -----
 		NodeList nodes = node.getChildNodes();
 		for (int i = 0; i < nodes.getLength(); i++) {
 			Node item = nodes.item(i);
@@ -110,7 +117,8 @@ public class DOMParser {
 		return book;
 	}
 
-	public List<Order> parse(InputStream in, Schema schema) throws ParserConfigurationException, SAXException, IOException {
+	public List<Order> parse(InputStream in, Schema schema)
+			throws ParserConfigurationException, SAXException, IOException {
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		dbf.setNamespaceAware(true);

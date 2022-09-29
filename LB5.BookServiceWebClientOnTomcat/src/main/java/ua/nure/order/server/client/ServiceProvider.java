@@ -21,7 +21,7 @@ public class ServiceProvider {
 		return port.getBookPort();
 	}
 	
-	public static BookService getInstance(String url) {
+	public static synchronized BookService getInstance(String url) {
 		if (books == null) {
 			if (url == null) {
 				books = getDefaultBooks();

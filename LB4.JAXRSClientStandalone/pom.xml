@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ua.nure.itech.jax-rs</groupId>
-    <artifactId>lb4-rest-client-standalone</artifactId>
+    <artifactId>lb4-rest-book-client-standalone</artifactId>
     <version>1.1</version>
     <name>JaxRS Client Demo</name>
     <description>

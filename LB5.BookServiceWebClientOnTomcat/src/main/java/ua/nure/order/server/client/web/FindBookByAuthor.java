@@ -21,7 +21,7 @@ public class FindBookByAuthor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final transient Logger log = LoggerFactory.getLogger(FindBookByAuthor.class);
 
-	private BookService service;
+	private transient BookService service;
 
 	@Override
 	public void init() throws ServletException {
@@ -31,10 +31,7 @@ public class FindBookByAuthor extends HttpServlet {
 		log.trace("Get attribute BookService, {}", service);
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String pattern = request.getParameter("pattern");

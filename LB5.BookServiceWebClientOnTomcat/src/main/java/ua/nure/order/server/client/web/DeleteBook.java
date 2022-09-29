@@ -19,10 +19,11 @@ import ua.nure.order.server.service.DAOException_Exception;
  * Servlet implementation class DeleteBook
  */
 public class DeleteBook extends HttpServlet {
+	private static final String DEBUG_ERROR_MSG = "Set errorMsg to the session";
 	private static final long serialVersionUID = 1L;
 	private final transient Logger log = LoggerFactory.getLogger(DeleteBook.class);
 
-	private BookService service;
+	private transient BookService service;
 	
 	@Override
 	public void init() throws ServletException {
@@ -37,6 +38,7 @@ public class DeleteBook extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		String errMsg = null;
 		try {
 			int id = Integer.parseInt(request.getParameter("id"));
 			log.debug("Get id from request : {}",id);
@@ -45,16 +47,19 @@ public class DeleteBook extends HttpServlet {
 			log.debug("Set deleted book to the session : {}",book);
 		} catch (DAOException_Exception e) {
 			// Internal exception in web-service 
-			session.setAttribute("errorMsg", "Error: Can not add book into database");
-			log.debug("Set errorMsg to the session", e.getMessage());
+			errMsg = "Error: Can not delete book from database";
+			log.debug(DEBUG_ERROR_MSG, e.getMessage());
 		} catch (NumberFormatException e) {
 			// Can not parse price or count
-			session.setAttribute("errorMsg", "Error: uncorrect price or count");
-			log.debug("Set errorMsg to the session", e.getMessage());
+			errMsg = "Error: incorrect id";
+			log.debug(DEBUG_ERROR_MSG, e.getMessage());
 		} catch (Exception e) {
 			// Any other exceptions
-			session.setAttribute("errorMsg", "Error: Can not comminicate with book service");
-			log.debug("Set errorMsg to the session", e.getMessage());
+			errMsg = "Error: Can not communicate with book service";
+			log.debug(DEBUG_ERROR_MSG, e.getMessage());
+		}
+		if (errMsg != null) {
+			session.setAttribute("errorMsg", errMsg);
 		}
 		
 		// PRG pattern

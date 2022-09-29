@@ -60,6 +60,7 @@ public interface DBTable<T> {
 	
 	public int size();
 
+	@SuppressWarnings("unchecked")
 	public int[] insert(T... item);
 
 }

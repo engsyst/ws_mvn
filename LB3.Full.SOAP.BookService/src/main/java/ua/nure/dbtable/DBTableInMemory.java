@@ -22,10 +22,11 @@ class DBTableInMemory<T> implements DBTable<T> {
 			throw new IllegalArgumentException("T can not be a null");
 		}
 		items.put(++index, item);
-		log.debug("T added -->" + item);
+		log.debug("T added --> {}", item);
 		return index;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public int[] insert(T... items) {
 		int[] ids = new int[items.length];
@@ -74,7 +75,7 @@ class DBTableInMemory<T> implements DBTable<T> {
 
 	@Override
 	public Collection<T> filter(Object pattern, Filter filter) {
-		ArrayList<T> found = new ArrayList<T>();
+		ArrayList<T> found = new ArrayList<>();
 		for (T item : items.values()) {
 			if (filter.accept(pattern, item)) {
 				log.debug("Found : {}",item);

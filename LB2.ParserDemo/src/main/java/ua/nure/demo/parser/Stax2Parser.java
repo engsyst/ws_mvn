@@ -52,18 +52,18 @@ public class Stax2Parser {
     }
 
     private List<Order> parse(InputStream in, String schemaFile) throws XMLStreamException {
-        XMLInputFactory factory = newInstance();
+//        XMLInputFactory factory = newInstance();
 		// XML parsers should not be vulnerable to XXE attacks
         // to be compliant, completely disable DOCTYPE declaration:
-        factory.setProperty(XMLInputFactory.SUPPORT_DTD, false);
 //		factory.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");    // not supported by StAX2
 //		factory.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, ""); // not supported by StAX2
 
-        XMLInputFactory2 xmlInputFactory = (XMLInputFactory2) factory;
+        XMLInputFactory xmlInputFactory = XMLInputFactory2.newInstance();
         // Configure factory
         xmlInputFactory.setProperty(XMLInputFactory.IS_NAMESPACE_AWARE, true);
         // Validation do not supported by Sun's StAX implementation
  		xmlInputFactory.setProperty(XMLInputFactory.IS_VALIDATING, Boolean.TRUE);
+		xmlInputFactory.setProperty(XMLInputFactory.SUPPORT_DTD, false);
 
 		XMLStreamReader2 reader = (XMLStreamReader2) xmlInputFactory.createXMLStreamReader(in);
 
