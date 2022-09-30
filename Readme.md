@@ -31,6 +31,9 @@ The implementations moved to Jakarta EE.
 - LB3.4.JAXWSServiceHandlerStandalone 
 - LB3.4.JAXWSClientHandlerStandalone
 
+### How to deploy Web-Service on Tomcat
+- LB3.W.JAXWSServiceMetroOnTomcat
+
 ### Full example of SOAP Web-Service
 - LB3.Full.SOAP.BookService
 
@@ -42,13 +45,3 @@ The implementations moved to Jakarta EE.
 
 ### Java Web Application (client) for `LB3.Full.SOAP.BookService`
 - LB5.BookServiceWebClientOnTomcat
-
-### How to deploy Web-Service on Tomcat
-- LB3.W.JAXWSServiceAXIS2OnTomcat
-- LB3.W.JAXWSServiceCXFOnTomcat
-- LB3.W.JAXWSServiceMetroOnTomcat
-
-### LB3.41.JAXWSClientWithJar
-### LB3.5.JAXWSClientWithInheritance
-### LB3.5.JAXWSServerWithInheritance
-### LB3.3.JAXWSClientInheritanceStandaloneX
