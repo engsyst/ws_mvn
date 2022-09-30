@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://it.nure.ua/xmldemo/choce"
+        xmlns:tns="http://it.nure.ua/xmldemo/choce" elementFormDefault="qualified">
+
+    <xs:element name="orders">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order" type="tns:Order" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:attribute name="id" type="tns:positiveInteger"/>
+
+    <xs:simpleType name="positiveInteger">
+        <xs:restriction base="xs:int">
+            <xs:minExclusive value="0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Order">
+        <xs:sequence>
+            <xs:element name="orderItem" type="tns:OrderItem" maxOccurs="unbounded"/>
+            <xs:element name="deliver" type="tns:Delivery"/>
+        </xs:sequence>
+        <xs:attribute ref="tns:id" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="OrderItem">
+        <xs:sequence>
+            <xs:element name="count" type="tns:positiveInteger"/>
+            <xs:element name="book" type="tns:Book"/>
+        </xs:sequence>
+        <xs:attribute ref="tns:id" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Book">
+        <xs:sequence>
+            <!-- definitions -->
+        </xs:sequence>
+        <xs:attribute ref="tns:id" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="Delivery">
+        <xs:sequence>
+            <!-- definitions -->
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders>
+	<order id="1">
+		<product id="5">
+			<name>token</name>
+			<description>description</description>
+			<price currency="UAH" value="0.07" />
+			<quantity>0</quantity>
+		</product>
+		<totalPrice currency="UAH">0.0</totalPrice>
+		<delivery id="0">
+			<country>token</country>
+			<phone>+380501234567</phone>
+		</delivery>
+	</order>
+	<order id="2">
+		<product id="3">
+			<name>token</name>
+			<description>description</description>
+			<price currency="UAH" value="0.0" />
+			<quantity>0</quantity>
+		</product>
+		<totalPrice currency="UAH">0.0</totalPrice>
+		<delivery id="0">
+			<country/>
+			<address>Unknown</address>
+		</delivery>
+	</order>
+</orders>

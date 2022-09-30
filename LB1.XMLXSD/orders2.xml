@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orders> <!--xmlns:tns="http://order.nure.ua/entity/order/"
+	xmlns:bk="http://order.nure.ua/entity/book/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://order.nure.ua/entity/order/ orders.xsd "-->
+	<order id="1">
+		<orderItem id="8">
+			<count>1</count>
+			<book id="1">
+				<title>title</title>
+				<author id="1">
+					<title>author 1</title>
+				</author>
+				<author id="2">
+					<title>author 2</title>
+				</author>
+				<price>10.0</price>
+				<category>Fantasy</category>
+				<count>0</count>
+			</book>
+		</orderItem>
+		<orderItem id="8">
+			<count>3</count>
+			<book id="0">
+				<title>title 1</title>
+				<author>
+					<title>author</title>
+				</author>
+				<price>0.50</price>
+				<category>Action</category>
+				<count>0</count>
+			</book>
+		</orderItem>
+	</order>
+	<order>
+		<orderItem id="5">
+			<count>1</count>
+			<book id="7">
+				<title>title 2</title>
+				<author id="3">
+					<title>author 3</title>
+				</author>
+				<price>7.0</price>
+				<category>Love novel</category>
+				<count>0</count>
+			</book>
+		</orderItem>
+		<orderItem id="5">
+			<count>2</count>
+			<book id="4">
+				<title>title 3</title>
+				<author  id="2">
+					<title>author 2</title>
+				</author>
+				<price>3.50</price>
+				<category>Love novel</category>
+				<count>0</count>
+			</book>
+		</orderItem>
+	</order>
+</orders>
