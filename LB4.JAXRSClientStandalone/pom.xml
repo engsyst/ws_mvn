@@ -26,7 +26,7 @@
 		<jaxb.version>4.0.0</jaxb.version>
 		<jaxb-core.version>4.0.0</jaxb-core.version>
 		<jersey.version>3.0.8</jersey.version>
-		<jackson.core.version>2.13.4</jackson.core.version>
+		<jackson.core.version>2.13.4.1</jackson.core.version>
     </properties>
 
     <dependencies>
