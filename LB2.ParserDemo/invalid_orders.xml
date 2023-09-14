@@ -14,8 +14,7 @@
 				<bk:author id="2">
 					<bk:title>author 2</bk:title>
 				</bk:author>
-				<bk:price>10.0</bk:price>
-				<bk:price>10.0</bk:price>
+				<bk:price>-10.0</bk:price>
 				<bk:category>Fantasy</bk:category>
 				<bk:count>0</bk:count>
 			</book>

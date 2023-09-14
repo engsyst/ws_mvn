@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:order id="0"
+	xmlns:tns="http://www.example.org/unique"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/unique unique.xsd ">
+
+	<!-- Try to make non-unique product @id -->
+	<item>
+		<product id="0">
+			<name>token</name>
+			<description>description</description>
+		</product>
+		<count>0</count>
+	</item>
+	<item>
+		<product id="1">
+			<name>token</name>
+			<description>description</description>
+		</product>
+		<count>0</count>
+	</item>
+	<total>0.0</total>
+</tns:order>

@@ -21,7 +21,7 @@
 	<xsl:template match="chapter"> <!-- [chapter] -->
 		<tr>
 			<xsl:call-template name="num" >
-				<xsl:with-param name="align" >center</xsl:with-param>
+				<xsl:with-param name="align" >right</xsl:with-param>
 			</xsl:call-template>
 			<xsl:apply-templates select="title" />	
 		</tr>
