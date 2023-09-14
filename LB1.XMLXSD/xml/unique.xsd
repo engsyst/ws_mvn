@@ -6,7 +6,7 @@
 	<xs:element name="order" type="tns:Order">
 		<xs:unique name="uniqueProducts">
 			<xs:annotation><xs:documentation>
-			Requires unique identifiers across the order. 
+			Requires unique identifiers across the order element. 
 			Must be located in an element within which 
 			uniqueness will be ensured.
 			</xs:documentation></xs:annotation>
