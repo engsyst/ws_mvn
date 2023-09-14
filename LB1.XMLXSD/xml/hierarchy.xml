@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:entity xmlns:tns="http://www.example.org/hierarchy"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/hierarchy hierarchy.xsd "
+	xsi:type="tns:Product">
+	<tns:name>token</tns:name>
+	<tns:description>a description</tns:description>
+</tns:entity>

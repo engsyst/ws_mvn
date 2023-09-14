@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/hierarchy"
+	xmlns:tns="http://www.example.org/hierarchy"
+	elementFormDefault="qualified">
+	
+	<xs:element name="entity" type="tns:Entity"/>
+
+	<xs:complexType name="Entity">
+		<xs:sequence>
+			<xs:element name="name" type="xs:token" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Product">
+		<xs:complexContent>
+			<xs:extension base=" tns:Entity">
+				<xs:sequence>
+					<xs:element name="description" type="xs:string" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
