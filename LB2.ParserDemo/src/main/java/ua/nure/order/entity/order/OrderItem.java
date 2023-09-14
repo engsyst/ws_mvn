@@ -95,4 +95,9 @@ public class OrderItem
         this.book = value;
     }
 
+	@Override
+	public String toString() {
+		return "OrderItem [count=" + count + ", book=" + book + "]";
+	}
+
 }

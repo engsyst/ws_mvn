@@ -69,4 +69,9 @@ public class Author
         this.title = value;
     }
 
+	@Override
+	public String toString() {
+		return "Author [title=" + title + "]";
+	}
+
 }

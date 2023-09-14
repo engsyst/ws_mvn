@@ -74,4 +74,9 @@ public class Order
         return this.orderItem;
     }
 
+	@Override
+	public String toString() {
+		return "Order [orderItem=" + orderItem + "]";
+	}
+
 }

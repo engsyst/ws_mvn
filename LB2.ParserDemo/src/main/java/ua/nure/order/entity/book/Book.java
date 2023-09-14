@@ -212,4 +212,10 @@ public class Book
         this.count = value;
     }
 
+	@Override
+	public String toString() {
+		return "Book [title=" + title + ", author=" + author + ", isbn=" + isbn + ", price=" + price + ", category="
+				+ category + ", count=" + count + "]";
+	}
+
 }

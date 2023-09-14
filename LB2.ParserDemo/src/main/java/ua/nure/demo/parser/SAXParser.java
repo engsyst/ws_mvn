@@ -127,7 +127,7 @@ public class SAXParser extends DefaultHandler {
 			}
 		} else if (Const.TAG_TITLE.equals(current)) {
 			if (Const.TAG_BOOK.equals(titleParent)) {
-				book.setTitle(new String(ch, start, length));
+				book.setTitle(value);
 			}
 			if (Const.TAG_AUTHOR.equals(titleParent)) {
 				author.setTitle(value);
