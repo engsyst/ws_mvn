@@ -4,12 +4,14 @@ import java.util.Collection;
 
 import jakarta.jws.WebMethod;
 import jakarta.jws.WebParam;
+import jakarta.jws.WebParam.Mode;
 import jakarta.jws.WebResult;
 import jakarta.jws.WebService;
+import jakarta.xml.ws.Holder;
 import ua.nure.order.entity.Book;
 import ua.nure.order.server.dao.DAOException;
 
-@WebService(targetNamespace="http://order.nure.ua/server/service")
+@WebService(targetNamespace= Const.SERVICE_NS)
 public interface BookService {
 
 	@WebMethod()
@@ -27,7 +29,13 @@ public interface BookService {
 	@WebResult(targetNamespace="http://order.nure.ua/entity")
 	public Book deleteBook(
 			@WebParam(name="id")
-			int id) throws DAOException;
+			int id, 
+			@WebParam(name="clientToken", header = true)
+			String clientToken, 
+			@WebParam(name="serverToken", header = true, mode = Mode.OUT)
+			Holder<String> serverToken
+			) throws DAOException;
+	
 	
 	@WebMethod()
 	@WebResult(targetNamespace="http://order.nure.ua/entity")

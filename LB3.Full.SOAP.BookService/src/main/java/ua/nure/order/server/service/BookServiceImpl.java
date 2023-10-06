@@ -2,12 +2,15 @@ package ua.nure.order.server.service;
 
 import java.util.Collection;
 
+import jakarta.jws.HandlerChain;
 import jakarta.jws.WebService;
+import jakarta.xml.ws.Holder;
 import ua.nure.order.entity.Book;
 import ua.nure.order.server.dao.BookDAO;
 import ua.nure.order.server.dao.BookDAOInMemoryImpl;
 import ua.nure.order.server.dao.DAOException;
 
+@HandlerChain(file = "security_handler.xml")
 @WebService(serviceName="Books",
 		portName="BookPort",
 		endpointInterface="ua.nure.order.server.service.BookService",
@@ -41,7 +44,8 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public Book deleteBook(int id) throws DAOException {
+	public Book deleteBook(int id, String clientToken, Holder<String> serverToken) 
+			throws DAOException {
 		return bookDao.deleteBook(id);
 	}
 	

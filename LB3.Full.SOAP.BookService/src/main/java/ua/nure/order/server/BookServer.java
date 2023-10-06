@@ -11,7 +11,10 @@ public class BookServer {
 	
 	public static void main(String[] args) {
 		System.out.println("Starting Server");
-		Endpoint endpoint = Endpoint.publish(ADDRESS, implementor);
+    	System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+    	System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+
+    	Endpoint endpoint = Endpoint.publish(ADDRESS, implementor);
 		
 		System.out.println("Server ready... at " + ADDRESS);
 
