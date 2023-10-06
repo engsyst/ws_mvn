@@ -3,6 +3,8 @@ package ua.nure.dbtable;
 import java.sql.SQLException;
 import java.util.Collection;
 
+import ua.nure.order.server.dao.DAOException;
+
 public interface DBTable<T> {
 	/**
 	 * Add a object to table 
@@ -29,7 +31,7 @@ public interface DBTable<T> {
 	 * @return
 	 * @throws DAOException 
 	 */
-	public void delete(Object item, Filter filter);
+	public void delete(T item, Filter<T> filter);
 	
 	/**
 	 * Add a object to table 
@@ -46,7 +48,7 @@ public interface DBTable<T> {
 	 * @param name
 	 * @return
 	 */
-	public Collection<T> filter(Object pattern, Filter filter);
+	public <K> Collection<T> filter(K pattern, Filter<T> filter);
 
 	/**
 	 * 

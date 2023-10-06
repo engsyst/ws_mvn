@@ -1,13 +1,13 @@
 package ua.nure.dbtable;
 
-public interface Filter {
+public interface Filter<T> {
 	/**
 	 * Tests whether or not the specified item should be
      * included in a list.
-     * 
-	 * @param pattern - searched pattern
 	 * @param item - item to include or not
+	 * @param pattern - searched pattern
+     * 
 	 * @return
 	 */
-	boolean accept(Object pattern, Object item);
+	 <K> boolean accept(T item, K pattern);
 }

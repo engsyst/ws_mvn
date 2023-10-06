@@ -69,21 +69,19 @@ public class BookDAOInMemoryImpl implements BookDAO {
 		}
 	}
 
-	Filter titleFilter = new Filter() {
+	Filter<Book> titleFilter = new Filter<>() {
 		@Override
-		public boolean accept(Object pattern, Object item) {
+		public boolean accept(Book item, Object pattern) {
 			String p = (String) pattern;
-			Book it = (Book) item;
-			return it.getTitle().toUpperCase().contains(p.toUpperCase());
+			return item.getTitle().toUpperCase().contains(p.toUpperCase());
 		}
 	};
 	
-	Filter authorFilter = new Filter() {
+	Filter<Book> authorFilter = new Filter<>() {
 		@Override
-		public boolean accept(Object pattern, Object item) {
+		public boolean accept(Book item, Object pattern) {
 			String p = (String) pattern;
-			Book it = (Book) item;
-			List<String> authors = it.getAuthor();
+			List<String> authors = item.getAuthor();
 			for (Iterator<String> iterator = authors.iterator(); iterator.hasNext();) {
 				String string = iterator.next();
 				if (string.toUpperCase().contains(p.toUpperCase()))

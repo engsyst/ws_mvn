@@ -47,9 +47,9 @@ class DBTableInMemory<T> implements DBTable<T> {
 	}
 
 	@Override
-	public void delete(Object item, Filter filter) {
+	public void delete(T item, Filter<T> filter) {
 		for (Entry<Integer, T> entry : items.entrySet()) {
-			if (filter.accept(item, entry.getValue())) {
+			if (filter.accept(entry.getValue(), item)) {
 				log.debug("Accepted to remove : {}",entry.getValue());
 				boolean res = items.remove(entry.getKey(), entry.getValue());
 				log.debug("IsRemoved : {}",res);
@@ -65,8 +65,7 @@ class DBTableInMemory<T> implements DBTable<T> {
 		}
 		T o = items.get(id);
 		if (o == null) {
-			log.debug("Not found. Id : {}",id);
-			throw new SQLException("Not found");
+			return false;
 		}
 		T res = items.put(id, item);
 		log.debug("Found. Updated : {}",res);
@@ -74,10 +73,10 @@ class DBTableInMemory<T> implements DBTable<T> {
 	}
 
 	@Override
-	public Collection<T> filter(Object pattern, Filter filter) {
+	public <K> Collection<T> filter(K pattern, Filter<T> filter) {
 		ArrayList<T> found = new ArrayList<>();
 		for (T item : items.values()) {
-			if (filter.accept(pattern, item)) {
+			if (filter.accept(item, pattern)) {
 				log.debug("Found : {}",item);
 				found.add(item);
 			}
