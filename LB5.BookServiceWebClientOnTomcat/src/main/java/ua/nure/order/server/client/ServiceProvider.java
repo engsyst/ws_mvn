@@ -2,8 +2,11 @@ package ua.nure.order.server.client;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 import ua.nure.order.server.service.BookService;
+import ua.nure.order.server.service.Books;
+import ua.nure.order.server.servicehandler.SecurityHandler;
 
 public class ServiceProvider {
 	private static BookService books;
@@ -13,11 +16,13 @@ public class ServiceProvider {
 	
 	private static BookService getDefaultBooks() {
 		ua.nure.order.server.service.Books port = new ua.nure.order.server.service.Books();
+		port.setHandlerResolver(portInfo -> List.of(new SecurityHandler()));
 		return port.getBookPort();
 	}
 	
 	private static BookService getBooks(String url) throws MalformedURLException {
-		ua.nure.order.server.service.Books port = new ua.nure.order.server.service.Books(new URL(url));
+		Books port = new ua.nure.order.server.service.Books(new URL(url));
+		port.setHandlerResolver(portInfo -> List.of(new SecurityHandler()));
 		return port.getBookPort();
 	}
 	
@@ -34,7 +39,7 @@ public class ServiceProvider {
 			}
 		} else if (!url.equals(ServiceProvider.url)) {
 			try {
-				getBooks(url);
+				books = getBooks(url);
 				ServiceProvider.url = url;
 			} catch (MalformedURLException e) {
 				ServiceProvider.url = null;
