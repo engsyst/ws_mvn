@@ -101,11 +101,11 @@ public class JAXBParser2 {
 		Marshaller marshaller = jc.createMarshaller();
 
 		// It allows to validate resulting document
-		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+//		SchemaFactory schemaFactory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 		
 		// It will throw an exception if there is no "order" element were declared in order.xsd 
-		marshaller.setSchema(schemaFactory.newSchema(new File("order.xsd"))); 
-		marshaller.setProperty(null, schemaFactory);
+//		marshaller.setSchema(schemaFactory.newSchema(new File("order.xsd"))); 
+//		marshaller.setProperty(null, schemaFactory);
 		
 		// serialization the object of class that is not annotated @XmlRootElement
 		JAXBElement<Order> jorder = new JAXBElement<>(

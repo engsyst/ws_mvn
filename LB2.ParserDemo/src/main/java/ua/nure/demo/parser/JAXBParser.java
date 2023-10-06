@@ -145,7 +145,7 @@ public class JAXBParser {
 		System.out.println("--== JAXB Parser ==--");
 		// load Orders object from NOT valid XML (success, just prints validation
 		// warning)
-		Orders orders = loadOrders(Const.INVALID_XML_FILE, Const.XSD_FILE, Const.OBJECT_FACTORY);
+		Orders orders = loadOrders(Const.XML_FILE, Const.XSD_FILE, Const.OBJECT_FACTORY);
 
 		// we have Orders object at this point
 		System.out.println("====================================");
