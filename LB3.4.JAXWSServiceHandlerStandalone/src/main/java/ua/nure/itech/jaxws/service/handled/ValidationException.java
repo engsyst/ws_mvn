@@ -2,21 +2,20 @@ package ua.nure.itech.jaxws.service.handled;
 
 import jakarta.xml.ws.WebFault;
 
-@WebFault(name = "ValidationException", faultBean = "ValidationExceptionInfo")
+@WebFault(name = "ValidationFault", faultBean = "FaultBean")
 public class ValidationException extends Exception {
 
 	private static final long serialVersionUID = -1135153123347053147L;
+	
+	private FaultBean fault;
 
 	public ValidationException() {
 		super();
 	}
-
-	public ValidationException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
-
-	public ValidationException(String message, Throwable cause) {
-		super(message, cause);
+	
+	protected ValidationException(FaultBean fault) {
+		super(fault.getMessage());
+		this.fault = fault;
 	}
 
 	public ValidationException(String message) {
@@ -25,6 +24,14 @@ public class ValidationException extends Exception {
 
 	public ValidationException(Throwable cause) {
 		super(cause);
+	}
+	
+	public ValidationException(String message, Throwable cause) {
+		super(message, cause);
+	}
+	
+	public ValidationException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
 	}
 
 }

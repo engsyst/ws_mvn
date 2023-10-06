@@ -113,7 +113,7 @@ public class SecurityHandler implements SOAPHandler<SOAPMessageContext> {
 		return true;
 	}
 
-	// Как подменить/создать свой Fault в зависимости от протокола
+	// How to replace/create your own Fault which depends from a protocol
 	private SOAPFault createFault(SOAPMessage message, String faultString) {
 		SOAPFault fault = null;
 		try {
