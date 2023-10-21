@@ -9,7 +9,6 @@ public class User implements Serializable {
 	private Long id;
 	private String name;
 	private List<Long> favoritIds;
-	private transient List<Game> favorits;
 
 	public User() {
 		super();
@@ -44,14 +43,6 @@ public class User implements Serializable {
 
 	public void setFavoritIds(List<Long> favoritIds) {
 		this.favoritIds = favoritIds;
-	}
-
-	public List<Game> getFavorits() {
-		return favorits;
-	}
-
-	public void setFavorits(List<Game> favorits) {
-		this.favorits = favorits;
 	}
 
 	@Override
